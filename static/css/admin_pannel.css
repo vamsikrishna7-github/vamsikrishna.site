@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+body {
+    font-family: 'Fira Code', monospace;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.99px;
+    letter-spacing: 0%;
+    background-color: #282c33;
+    overflow-x: hidden;
+
+}
+i:hover {
+    color: blue !important;
+}
+
+table {
+    background-color: transparent !important;
+    border: 1px solid gray !important;
+}
+
+.container .table thead th {
+    background-color: transparent !important;
+    color: white;
+}
+.container .table tbody td {
+    background-color: transparent !important;
+    color: gray;
+}
+

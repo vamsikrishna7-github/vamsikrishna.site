@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Contact Form Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+        .emoji {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📬 New Contact Form Submission</h2>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> <a href="mailto:{{ email }}">{{ email }}</a></p>
+        <p><strong>Phone:</strong> {{ phone }}</p>
+        <p><strong>Title:</strong> {{ subject }}</p>
+        <p><strong>Project Type:</strong> {{ project_type }}</p>
+        <p><strong>Message:</strong></p>
+        <p>{{ message }}</p>
+        <p>🌐 <strong>Website:</strong> <a href="https://your-portfolio-link.com" target="_blank">Visit Website</a></p>
+    </div>
+</body>
+</html>

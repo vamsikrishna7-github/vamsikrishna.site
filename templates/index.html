@@ -1,0 +1,789 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vamsi Krishna</title>
+    <link rel="icon" type="image/png" href="{% static 'img/dp.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body class="position-relative">
+
+    <!-- side vertical contact links -->
+    <div class="ms-4 side-contact-bar position-fixed z-3">
+      <div class="vertical-line"></div>
+      <div class="contact-buttons d-flex flex-column">
+        <a target="_blank" href="https://github.com/vamsikrishna7-github"><img class="my-2" width="25" height="25" src="https://img.icons8.com/material-outlined/100/FFFFFF/github.png" alt="github"/></a>
+        <a target="_blank" href="https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/"><img class="" width="25" height="25" src="https://img.icons8.com/ios-glyphs/120/FFFFFF/linkedin.png" alt="linkedin"/></a>
+        <a href="mailto:vamsikrishna.nagidi@gmail.com"><img class="my-2" width="23" height="23" src="https://img.icons8.com/glyph-neue/128/FFFFFF/gmail.png" alt="gmail"/></a>
+      </div>
+    </div>
+
+    <!-- navbar division -->
+    <div class="container">
+      <nav class="navbar navbar-expand-sm fixed-top">
+        <div class="container">
+          <a class="navbar-brand text-white" href="#"><i class="bi bi-code-square"></i> VamsiKrishna</a>
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-menu-button-fill text-white fs-1"></i>
+        </button>        
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link active" aria-current="page" name="home" href="#home"><span class="hilate-text">#</span>home</a>
+              <a class="nav-link " name="projects" href="#projects"><span class="hilate-text">#</span>projects</a>
+              <a class="nav-link" name="about" href="#about"><span class="hilate-text">#</span>about</a>
+              <a class="nav-link" name="services" href="#services"><span class="hilate-text">#</span>services</a>
+              <a class="nav-link" name="contact" href="#contact"><span class="hilate-text">#</span>contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+        <!-- home_section -->
+      <section id="home">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center">
+    
+                <!-- Left Section - Text -->
+                <div class="mt-4 mb-3 mx-lg-5 flex-grow-1 text-md-start">
+                    <h3 class="text-white">
+                        Vamsi Krishna is a <span class="hilate-text">Back-End Developer</span> and 
+                        <span class="hilate-text">Front-End Developer</span>
+                    </h3>
+                    <p class="passage-text">
+                        Building interactive and responsive web solutions with Django, MySQL, Bootstrap, HTML, CSS, and JavaScript.
+                    </p>
+                    <p class="passage-text">
+                        Passionate about full-stack development, I specialize in creating seamless user experiences and dynamic web applications. Open to work and job opportunities!
+                    </p>
+                    <a href="#" class="custom-buttons btn btn-outline-primary border-0">Contact me!!</a>
+                </div>
+
+                <!-- Add this to your base template (e.g., base.html) -->
+                <div id="loading" class="position-fixed top-50 start-50 translate-middle">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+    
+                <!-- Right Section - Image -->
+                <div class="text-center">
+                    <img id="home-img" src=" {% static 'img/home/hero.png' %} " class="p-1 img-fluid rounded" alt="Img not found">
+                    <br>
+                    <div class="d-inline passage-text border border-bottom p-1">
+                        <span class="bg-primary text-primary">. </span>&#8203; Currently working on <strong class="text-white">Portfolio</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Quote Section -->
+        <div class="quote d-flex justify-content-center align-items-center text-center">
+            <div class="text-white quote-home">
+                "Programming is the art of doing one thing at a time."
+                <div class="author text-white">- geeksforgeeks</div>
+            </div>
+        </div>
+        <br>
+    </section>
+    
+
+      <!-- project_section -->
+      <section id="projects">
+        <div class="my-3">
+          <div class="d-flex text-white">
+            <h3><span class="hilate-text">#</span>projects</h3>
+            <div class="hr-line"></div>
+            <a id="view-all" href="javascript:void(0);" class="text-decoration-none text-primary mt-1 ms-auto" onclick="projectsViewAll(this)" 
+              data-viewall-img="{% static 'img/services/view-all.png' %}">
+              View all <img width="20" height="20" src="{% static 'img/services/view-all.png' %}" alt="show-all-views"/>
+            </a>
+
+          </div>
+          <div class="container my-md-4 my-sm-2">
+            <div class="row g-4"> 
+              
+              <!-- Project Card 1 -->
+              <div class="col-12 col-md-6 col-lg-4"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/projects/2.png' %}" class="card-img-top" alt="Project Image">
+                  <div class="card-header passage-text">reCAPTCHA send_mail EmailMessage SQLite Django Python HTML CSS JavaScript Bootstrap</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Dynamic Portfolio with Admin Panel & Auto-Emails</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      A responsive Django portfolio with a custom admin panel, auto-email responses, reCAPTCHA spam protection, contact form, and secure admin login.
+                    </p>
+                    <div>
+                      <a target="_blank" href="https://github.com/vamsikrishna7-github/vamsikrishna.in.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        GitHub <img width="20" height="20" src="https://img.icons8.com/ios-filled/100/FFFFFF/source-code.png" alt="GitHub Icon"/>
+                      </a>
+                      <a target="_blank" href="{% url 'home' %}" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Live <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Card 2 -->
+              <div class="col-12 col-md-6 col-lg-4"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/projects/1.jpg' %}" class="card-img-top" alt="Project Image">
+                  <div class="card-header passage-text">HTML CSS JavaScript Bootstrap Python Django SQLite</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Dynamic Portfolio with Smart Contact System</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      Dynamic contact form with email automation (User & Admin).
+                      Custom Admin Panel (/admin/) with inbox mail management (view, delete).
+                      Logout & "View Site" option for admin
+                    </p>
+                    <div>
+                      <a target="_blank" href="https://github.com/vamsikrishna7-github/niranjan.in.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        GitHub <img width="20" height="20" src="https://img.icons8.com/ios-filled/100/FFFFFF/source-code.png" alt="GitHub Icon"/>
+                      </a>
+                      <a target="_blank" href="https://niranjan.cloud/" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Live <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Icon"/>
+                      </a>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Project Card 3 -->
+              <div class="col-12 col-md-6 col-lg-4"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/projects/4.jpg' %}" class="card-img-top" alt="Project Image">
+                  <div class="card-header passage-text">SQLite Django HTML Python</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Gameon</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      A 10-level puzzle game built with Django, featuring user authentication, leaderboard, profile page, and admin management
+                    </p>
+                    <div>
+                      <a target="_blank" href="https://github.com/vamsikrishna7-github/gameon.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        GitHub <img width="20" height="20" src="https://img.icons8.com/ios-filled/100/FFFFFF/source-code.png" alt="GitHub Icon"/>
+                      </a>
+                      <a target="_blank" href="#" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Live <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Card 4 -->
+              <div class="show-hide-projects col-12 col-md-6 col-lg-4 d-none"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/projects/3.jpg' %}" class="card-img-top" alt="Project Image">
+                  <div class="card-header passage-text">Ethereum Solidity Truffle Ganache IPFS (Pinata) Streamlit Docker</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Blockchain Certificate Validation</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      Built on Ethereum with IPFS storage, this DApp ensures secure and transparent certificate issuance and verification using smart contracts.
+                    </p>
+                    <div>
+                      <a  target="_blank" href="https://github.com/vamsikrishna7-github/Certificate-Validation-System.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        GitHub <img width="20" height="20" src="https://img.icons8.com/ios-filled/100/FFFFFF/source-code.png" alt="GitHub Icon"/>
+                      </a>
+                      <a target="_blank" href="#" class="btn btn-outline-primary rounded-0 custom-buttons disabled" type="button">
+                        Live <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+      
+            </div> 
+          </div> 
+        </div>
+      </section>
+      <br>
+      
+
+      <!-- about_section -->
+      <section id="about">
+        <div class="text-white mt-2">
+          <div class="d-flex">
+            <h3><span class="hilate-text">#</span>about</h3>
+            <div class="hr-line"></div>
+          </div>
+          <div class="d-md-flex d-sm-block pe-3 m-1">
+            <div class="p-2 flex-fill">
+              <p class="passage-text">Hello, i'm Vamsi krishna!</p>
+              <p class="passage-text">A passionate full-stack developer with skills in Python Django, Java, HTML, CSS, JavaScript, and Bootstrap. I also am proficient with MySQL and SQLite and have hands-on experience for Git. My interests also branch out to cybersecurity, where I have worked with Nmap, BurpSuite, becn Metasploit. I am very curious and enjoy complex problems which makes me excited to think about new challenges in the realms of web development and cybersecurity.</p>
+              <p class="passage-text display-text">Some projects I have worked on include Gameon, an interactive puzzle application that was built for soft skill evaluation, and a Blockchain Certificate Validation System that adds a layer of security and transparency to certificate validation through Ethereum smart contracts and IPFS storage. Recently, I worked on a Dynamic Portfolio Website wherein I integrated Django, SQLite, Bootstrap, and Javascript. The website displays changes instantly and is fully responsive. These projects have developed my understanding of backend logic, database management, and UI design.</p>
+              <a id="link-hover" class="btn btn-link text-decoration-none hilate-text" onclick="knowmore(this)">Know more</a>
+              <p id="hide-info" class="passage-text">Aside from my development work, I have participated in an Ethical Hacking workshop at JNTUK Kakinada, where I practiced the essentials of penetration testing and cybersecurity techniques. I also hold</p>
+              <a target="_blank" href="https://drive.google.com/file/d/13eCkX86NRo0-ozmVZLaYdgv_i4FFJg6F/view?usp=drive_link" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">CV &rarr;</a>
+            </div>
+            <!-- <div class="p-2 flex-fill d-md-flex text-center align-items-center ">
+              <img src="./src/img/about/hero.png" alt="" class="img border-bottom border-primary mb-3" style="width: 290px; height: 300px;">
+            </div> -->
+          </div>
+        </div>
+      
+        <br>
+        
+        <!-- Skills Section -->
+        <div id="skills" class="">
+          <div class="">
+            <div class="row">
+              <div class="d-flex text-white h4 align-items-center">
+                <span class="hilate-text">#</span>Skills
+                <div class="hr-line mt-0"></div>
+              </div>
+            </div>
+
+            <div class="m-1 row mt-4">
+              <!-- Left Column -->
+              <div class="col-md-6">
+                <table class="skill-table col-12 table">
+                  <thead>
+                    <tr>
+                        <td class="text-white">Languages</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="passage-text">
+                        Python <img width="24" height="25" src="https://img.icons8.com/color/144/python--v1.png" alt="python--v1"/>
+                        Java <img width="25" height="25" src="https://img.icons8.com/color/144/java-coffee-cup-logo--v1.png" alt="java-coffee-cup-logo--v1"/> 
+                        JavaScript <img width="25" height="25" src="https://img.icons8.com/color/144/javascript--v1.png" alt="javascript--v1"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="skill-table col-12 table">
+                  <thead>
+                    <tr>
+                        <td class="text-white">Databases</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="passage-text">
+                        MySQL <img width="25" height="25" src="https://img.icons8.com/color/144/my-sql.png" alt="my-sql"/>
+                        SqQLite <img width="25" height="25" src="https://img.icons8.com/ios/500/sqlite.png" alt="sqlite"/>
+                        Oracle <img width="25" height="25" src="https://img.icons8.com/color/144/oracle-logo.png" alt="oracle-logo"/>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="skill-table col-12 table">
+                  <thead>
+                    <tr>
+                        <td class="text-white">Web Development</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="passage-text">
+                        HTML <img width="25" height="25" src="https://img.icons8.com/color/144/html-5--v1.png" alt="html-5--v1"/>
+                        CSS <img width="25" height="25" src="https://img.icons8.com/color/144/css3.png" alt="css3"/>
+                        Bootstrap <img width="25" height="25" src="https://img.icons8.com/color/144/bootstrap--v2.png" alt="bootstrap--v2"/>
+                        Django <img width="25" height="25" src="https://img.icons8.com/external-tal-revivo-green-tal-revivo/72/external-django-a-high-level-python-web-framework-that-encourages-rapid-development-logo-green-tal-revivo.png" alt="external-django-a-high-level-python-web-framework-that-encourages-rapid-development-logo-green-tal-revivo"/>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="skill-table col-12 table">
+                  <thead>
+                    <tr>
+                        <td class="text-white">IDEs</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="passage-text">
+                        VS Code <img width="25" height="25" src="https://img.icons8.com/color/144/visual-studio-code-2019.png" alt="visual-studio-code-2019"/>
+                        Eclipse <img width="25" height="25" src="https://img.icons8.com/officexs/160/java-eclipse.png" alt="java-eclipse"/>
+                        Atom  <img width="25" height="25" src="https://img.icons8.com/color/144/react-native.png" alt="react-native"/>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Right Column -->
+              <div class="col-md-6">
+                <table class="skill-table col-12 table">
+                  <thead>
+                    <tr>
+                        <td class="text-white">Operating Systems</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="passage-text">
+                        Windows <img width="25" height="25" src="https://img.icons8.com/color/144/windows-10.png" alt="windows-10"/>
+                        Linux (CLI Familiar) <img width="25" height="25" src="https://img.icons8.com/color/96/linux--v1.png" alt="linux--v1"/>
+                        macOS <img width="25" height="25" src="https://img.icons8.com/fluency/48/mac-os.png" alt="mac-os"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="skill-table col-12 table">
+                  <thead>
+                    <tr>
+                        <td class="text-white">Version Control</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="passage-text">
+                        Git <img width="25" height="25" src="https://img.icons8.com/color/144/git.png" alt="git"/>
+                        GitHub <img width="25" height="25" src="https://img.icons8.com/fluency/144/github.png" alt="github"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="skill-table col-12 table">
+                  <thead>
+                    <tr>
+                        <td class="text-white">Networking</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="passage-text">
+                        TCP/IP <img width="25" height="25" src="https://img.icons8.com/ios/100/ipv6.png" alt="ipv6"/>
+                        HTTP <img width="25" height="25" src="https://img.icons8.com/external-outline-black-m-oki-orlando/64/external-http-web-services-outline-outline-black-m-oki-orlando.png" alt="external-http-web-services-outline-outline-black-m-oki-orlando"/>
+                        FTP <img width="25" height="25" src="https://img.icons8.com/color/96/ftp.png" alt="ftp"/>
+                        SSH <img width="25" height="25" src="https://img.icons8.com/fluency/96/ssh.png" alt="ssh"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="skill-table col-12 table">
+                  <thead>
+                    <tr>
+                        <td class="text-white">Security</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="passage-text">
+                        Nmap <img width="25" height="25" src="https://img.icons8.com/color/144/nmap.png" alt="nmap"/>
+                        Burp Suite <img width="25" height="25" src="https://img.icons8.com/ios-filled/150/burp-suite.png" alt="burp-suite"/>
+                        Metasploit <img width="25" height="25" src="https://img.icons8.com/fluency/96/metasploit.png" alt="metasploit"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <!-- publications_section -->
+        <div id="publications">    
+              <div class="">
+                <div class="d-flex text-white h4">
+                  <span class="hilate-text">#</span>publications
+                  <div class="hr-line"></div>
+                </div><br>
+        
+                <div class="text-white container">
+                  <h5>"<span class="hilate-text">Certificate Generation and Validation Using Blockchain</span>," TIJER International Research Journal, Vol. 11, Issue 4, April 2024.</h4>
+                    DOI: <a target="_blank" href="https://tijer.org/tijer/viewpaperforall.php?paper=TIJER2404172" class="link text-decoration-none hilate-text">Click here to view the publication</a>
+                    <p class="passage-text">In this paper, we proposed a blockchain-based system for generating and validating digital certificates. The approach ensures enhanced security, transparency, and immutability, addressing common issues like forgery and unauthorized alterations. This solution provides an efficient and reliable method for certificate issuance and verification in various sectors, including education and professional certifications.</p>
+                    <p class="text-secoundry">Details:</p>
+                    <ul class="passage-text">
+                    <li>Authors: Gudla Sourav Srinivas, Nagidi Vamsi Krishna, D. Preetam, P. Vivek</li> 
+                    <li>Published in: TIJER – International Research Journal (ISSN: 2349-9249)</li>
+                    <li>Impact Factor: 8.57 (Calculated by Google Scholar and Semantic Scholar)</li>
+                    <li>License: Creative Commons 3.0</li>
+                    <li>Registration ID: TIJER_151734</li>
+                    <li>Paper ID: TIJER2404172</li>
+                    </ul>
+                    <p>Documents:</p>
+                    <a target="_blank" href="https://tijer.org/tijer/certificatemanager.php?a_rid=151734" href="#" class="custom-buttons btn btn-outline-primary border-0 mb-3">Certificate</a>
+        
+                </div>
+              </div>
+              <br>
+        </div> 
+            
+        <!-- certificats_section -->
+        <div id="certification">  
+            <div class="">
+              <div class="d-flex text-white">
+                <span class="hilate-text h4">#</span><h4>certifications and training</h4>
+                <div class="hr-line"></div>
+              </div>
+              <br>
+              <ul class="text-white">
+                <li class="">May-Sep 2023 – Earned the TalentNext Wipro Java Full Stack Certification</li>
+                <a target="_blank" href="https://cert.diceid.com/csr/cid/bikpn0" class="btn-link text-decoration-none hilate-text">View Certificate (PDF)</a>
+                <li>Apr 2022-Jan 2023 – Achieved HackerRank Certifications in: </li>
+                <ul class="text-secondary">
+                  <li>Python – <a target="_blank" href="https://www.hackerrank.com/certificates/b36aaf9ba926" class="btn-link text-decoration-none hilate-text">View Certificate</a></li>
+                  <li>SQL – <a target="_blank" href="https://www.hackerrank.com/certificates/ec4c6d67d267" class="btn-link text-decoration-none hilate-text">View Certificate</a></li>
+                  <li>JavaScript – <a target="_blank" href="https://www.hackerrank.com/certificates/0ba91b61a2d4" class="btn-link text-decoration-none hilate-text">View Certificate</a></li>
+                  <li>Problem Solving (Basic) – <a target="_blank" href="https://www.hackerrank.com/certificates/117023db3960" class="btn-link text-decoration-none hilate-text">View Certificate</a></li>
+                </ul>
+                <li>Jul-Dec 2020 – Completed Industrial Training in Diploma C and Java at CDST Computer Education, scoring 79%</li>
+                <a target="_blank" href="https://drive.google.com/file/d/1ktq70CP6z-pWb_CGFqLI9GEXzloZjcny/view?usp=drive_link" class="btn-link text-decoration-none hilate-text">View Certificate (PDF)</a>
+              </ul>
+            </div>
+        </div> 
+          <br>
+
+      </section>
+      
+
+      <!-- services section -->
+      <section id="services">
+        <div class=" my-3">
+          <div class="d-flex text-white">
+            <h4><span class="hilate-text">#</span>what i offer</h4>
+            <div class="hr-line"></div>
+            <a id="view-all" class="text-decoration-none text-primary mt-1 ms-auto" 
+              onclick="viewAll(this)" 
+              data-viewall-img="{% static 'img/services/view-all.png' %}">
+              View all <img width="20" height="20" src="{% static 'img/services/view-all.png' %}" alt="show-all-views"/>
+            </a>
+
+          </div>
+          <div class="container my-md-4 my-sm-2">
+            <div class="row g-4"> 
+              
+              <!-- service Card 1 -->
+              <div class="col-12 col-md-6 col-lg-4"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/services/1.png' %}" class="card-img-top" alt="service Image">
+                  <div class="card-header passage-text">Django Python HTML CSS JavaScript Bootstrap MySQL/SQLite</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Full-Stack Web Development</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      I specialize in building end-to-end web applications with responsive frontends and scalable backends. 
+                      Whether you need a simple website or a complex web app,
+                      I can deliver a complete solution tailored to your business needs.
+                    </p>
+                    <div>
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
+                      </a>
+                      <a target="_blank" href="#" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Samples <img width="20" height="20" src="{% static 'img/services/work.png' %}" alt="Samples Icon"/>
+                      </a>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- service Card 2 -->
+              <div class="col-12 col-md-6 col-lg-4"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/services/2.png' %}" class="card-img-top" alt="service Image">
+                  <div class="card-header passage-text">Django Python Django REST Framework MySQL/SQLite</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Django Backend Web Development</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      I develop secure, scalable, and maintainable backend systems using Django and Python. 
+                      From database design to server-side logic, 
+                      I ensure your application runs smoothly and efficiently.
+                    </p>
+                    <div>
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
+                      </a>
+                      <a target="_blank" href="#" class="btn btn-outline-primary rounded-0 custom-buttons disabled" type="button">
+                        Samples <img width="20" height="20" src="{% static 'img/services/work.png' %}" alt="Samples Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- service Card 3 -->
+              <div class="col-12 col-md-6 col-lg-4"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/services/3.png' %}" class="card-img-top" alt="service Image">
+                  <div class="card-header passage-text">Django Python HTML CSS JavaScript Bootstrap MySQL/SQLite</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Custom Web Applications Development</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      I create custom web applications designed to solve specific business problems. 
+                      Whether it’s a dashboard, CRUD app, or data-driven platform, 
+                      I can build a solution that fits your unique requirements.
+                    </p>
+                    <div>
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Hire Me <img width="20" height="20" src=" {% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- service Card 4 -->
+              <div class="col-12 col-md-6 col-lg-4 show-hide"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/services/4.png' %}" class="card-img-top" alt="service Image">
+                  <div class="card-header passage-text">HTML CSS JavaScript Bootstrap</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Frontend Development</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      I create responsive, user-friendly, and visually appealing frontends for websites and web applications. 
+                      Using modern technologies, I ensure your site looks great on all devices.
+                    </p>
+                    <div>
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
+                      </a>
+                      <a target="_blank" href="https://niranjan.cloud/" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Samples <img width="20" height="20" src="{% static 'img/services/work.png' %}" alt="Samples Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- service Card 5 -->
+              <div class="col-12 col-md-6 col-lg-4 show-hide"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/services/5.png' %}" class="card-img-top" alt="service Image">
+                  <div class="card-header passage-text">HTML CSS JavaScript Bootstrap Django (for dynamic portfolios)</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Portfolio Website Development</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      I design and develop professional portfolio websites that showcase your work and help you stand out. 
+                      Whether you’re an individual or a business, I’ll create a visually appealing and functional portfolio to attract clients. 
+                    </p>
+                    <div>
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
+                      </a>
+                      <a target="_blank" href="https://niranjan.cloud/" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Samples <img width="20" height="20" src="{% static 'img/services/work.png' %}" alt="Samples Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- service Card 6 -->
+              <div class="col-12 col-md-6 col-lg-4 show-hide"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src=" {% static 'img/services/6.png' %}" class="card-img-top" alt="service Image">
+                  <div class="card-header passage-text">Django Python HTML CSS JavaScript MySQL/SQLite Git</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Website Maintenance and Support</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      I provide ongoing maintenance and support for existing websites and web applications. 
+                      From bug fixes to updates, I ensure your site remains functional and up-to-date.
+                    </p>
+                    <div>
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- service Card 7 -->
+              <div class="col-12 col-md-6 col-lg-4 show-hide"> 
+                <div class="card h-auto d-flex flex-column">
+                  <img src="{% static 'img/services/7.png' %}" class="card-img-top" alt="service Image">
+                  <div class="card-header passage-text">Django REST Framework Python MySQL/SQLite</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">REST API Development</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      I build RESTful APIs to enable seamless communication between frontend and backend systems or integrate third-party services. 
+                      My APIs are efficient, secure, and easy to use.
+                    </p>
+                    <div>
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+      
+            </div> 
+          </div> 
+        </div>
+      </section>
+      <br>
+
+      <!-- contacts section -->
+      <section id="contact">
+        <div class="d-flex flex-column justify-content-center">
+            <h4 class="text-white ps-2"><span class="hilate-text">/</span>contact-me</h4><br>
+            <p class="passage-text ps-2">
+                I’m always open to new opportunities and collaborations. Feel free to reach out with any questions, ideas, or just to connect. Looking forward to hearing from you!
+            </p>
+            <form action="{% url 'home' %}" method="POST">
+              {% csrf_token %}
+                <div class="row p-2">
+                    <div class="col pe-1">
+                        <input type="text" name="name" class="form-control rounded-0 bg-transparent custom-placeholder text-white border-secondary" placeholder="Name" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="email" class="form-control rounded-0 bg-transparent custom-placeholder text-white border-secondary" placeholder="Email" onkeyup="validateEmail(this)" required>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                      <input type="tel" name="phone" class="form-control rounded-0 bg-transparent custom-placeholder text-white border-secondary" 
+                        placeholder="Phone Number" required pattern="[0-9]{10,12}" title="Enter a valid phone number (10 digits)">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <input type="text" name="title" class="form-control bg-transparent rounded-0 text-white custom-placeholder border-secondary" placeholder="Title" required>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <select name="project_type" class="form-control bg-transparent rounded-0 text-white custom-placeholder border-secondary" required>
+                            <option value="" disabled selected>Project Type</option>
+                            <option value="Full-Stack Web Development">Full-Stack Web Development</option>
+                            <option value="Django Backend Web Development">Django Backend Web Development</option>
+                            <option value="Custom Web Applications Development">Custom Web Applications Development</option>
+                            <option value="Frontend Development">Frontend Development</option>
+                            <option value="Portfolio Website Development">Portfolio Website Development</option>
+                            <option value="Website Maintenance and Support">Website Maintenance and Support</option>
+                            <option value="REST API Development">REST API Development</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <textarea name="message" class="form-control bg-transparent rounded-0 border border-secondary custom-placeholder text-white" placeholder="Message" style="height: 110px;" required></textarea>
+                    </div>
+                </div>
+                <div class="row p-2">
+                  <div class="col">
+                      {{ form.captcha }}
+                  </div>
+              </div>              
+                <div class="row p-2">
+                    <div class="col">
+                        <button id="submit" class="btn btn-outline-primary rounded-0 custom-buttons" type="submit">Send</button>
+                    </div>
+                </div>
+            </form>
+          </div>
+      </section>
+
+      <br>
+    </div>
+
+    <!-- Modal for Messages -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header">
+            <h5 class="modal-title" id="messageModalLabel">Message</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center" id="messageModalBody">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="closeModalButton" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- side dots and designs  -->
+    <!-- right- side  -->
+     <img class="dots-r-1 position-absolute" width="90" height="100" src="{% static 'img/dots.png' %}" alt="dots">
+     <div class="side-r-box1"></div>
+     <div class="side-r-box2"></div>
+     <div class="side-r-box3"></div>
+    <!-- left side  -->
+    <div class="side-box-1"></div>
+    <img width="90" height="100" class="dots-1 position-absolute" src="{% static 'img/dots.png' %}" alt="dots">
+    <div class="side-box"></div>
+    <img width="90" height="100" class="dots position-absolute" src="{% static 'img/dots.png' %}" alt="dots">
+
+    <!-- <hr class="full-width-hr border"> -->
+    <div class="footerfull-width-hr"></div>
+
+    <!-- scroleup button  -->
+    <button id="scrollToTopBtn" onclick="scrollToTop(this)" title="Go to top">↑</button>
+
+    <!-- footer section -->
+    <div class="container">
+    <!-- footer section -->
+    <footer class="footer text-white py-4">
+      <div class="container d-flex justify-content-between align-items-center flex-wrap">
+        
+        <!-- Left Side -->
+        <div>
+          <strong>Vamsi Krishna</strong>  
+          <p id="footer-mail" class="mb-1">vamsikrishna.nagidi@gmail.com</p>
+          <p class="mb-0 passage-text">Front-end & Back-end Developer</p>
+        </div>
+        
+        <!-- Right Side (Social Media) -->
+        <div class="text-end">
+          <p class="mb-1">Follow Me:</p>
+          <div class="d-flex gap-2 justify-content-end contact-buttons">
+            <a target="_blank" href="https://github.com/vamsikrishna7-github" target="_blank"><img width="25" height="25" src="https://img.icons8.com/material-outlined/100/FFFFFF/github.png" alt="GitHub"/></a>
+            <a target="_blank" href="https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/" target="_blank"><img width="25" height="25" src="https://img.icons8.com/ios-glyphs/120/FFFFFF/linkedin.png" alt="LinkedIn"/></a>
+            <a href="mailto:vamsikrishna.nagidi@gmail.com" target="_blank"><img width="23" height="23" src="https://img.icons8.com/glyph-neue/128/FFFFFF/gmail.png" alt="Gmail"/></a>
+          </div>
+        </div>
+    
+      </div>
+    
+      <!-- Copyright -->
+      <p class="text-center mt-3 mb-0 passage-text">© 2024. Made by Vamsi Krishna</p>
+    </footer>
+    </div>
+
+     {% comment %} Google reCAPTCHA {% endcomment %}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    {% comment %} model message script {% endcomment %}
+    <script>
+
+      const closeModalButton = document.getElementById('closeModalButton');
+
+      closeModalButton.addEventListener('click', function() {
+      window.location.href = "http://127.0.0.1:8000/#contact"; 
+      });
+      
+      function showMessageModal(message, isSuccess) {
+        const messageModalBody = document.getElementById('messageModalBody');
+        const messageModalLabel = document.getElementById('messageModalLabel');
+    
+        messageModalBody.innerHTML = message;
+        messageModalLabel.textContent = isSuccess ? 'Success' : 'Error';
+    
+        messageModalBody.className = isSuccess ? 'text-success' : 'text-danger';
+    
+        const messageModal = new bootstrap.Modal(document.getElementById('messageModal'));
+        messageModal.show();
+      }
+    
+      {% if messages %}
+        {% for message in messages %}
+          {% if "success" in message.tags %}
+            showMessageModal("{{ message }}", true);
+          {% endif %}
+          {% if "error" in message.tags %}
+            showMessageModal("{{ message }}", false);
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </script>
+
+  </body>
+</html>

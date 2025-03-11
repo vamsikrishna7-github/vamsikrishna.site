@@ -349,10 +349,6 @@ select.form-control option {
     #footer-mail {
         font-size: 13px!important;
     }
-    /* about section last passage */
-    #hide-info {
-        display: none !important;
-    }
 }
 
 .dots {

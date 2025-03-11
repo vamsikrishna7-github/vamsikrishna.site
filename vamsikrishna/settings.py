@@ -136,19 +136,38 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # admin login url
 LOGIN_URL = '/admin/'
 
-# gmail api setup
+# # gmail api setup
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'vamsikrishna.nagidi@gmail.com'
+# EMAIL_HOST_PASSWORD = 'dhsm chzd aajm jcox'
+
+#zoho api setup
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'vamsikrishna.nagidi@gmail.com'
-EMAIL_HOST_PASSWORD = 'dhsm chzd aajm jcox'
+EMAIL_HOST = 'smtp.zoho.in'  # Zoho India SMTP
+EMAIL_PORT = 587  # Use 465 if using SSL
+EMAIL_USE_TLS = True  # Set to False if using SSL
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'contact@vamsikrishna.site'  # Your Zoho email
+EMAIL_HOST_PASSWORD = 'MKVEca9WUERn'  # Your Zoho App Password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Default sender email
 
 
-# captcha settings
+# # captcha settings
 RECAPTCHA_PUBLIC_KEY = "6Lds4e0qAAAAAMo-hNW5n7ViSl29D6vZBmGJPKGj"
 RECAPTCHA_PRIVATE_KEY = "6Lds4e0qAAAAAEU5awIdxjQz1bPVZ80RBfe1PZnD"
+
+# #test captcha settings
+# RECAPTCHA_PUBLIC_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+# RECAPTCHA_PRIVATE_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+# SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
+
 
 # SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
 
 RECAPTCHA_REQUIRED = True
+
+#This will store optimized static files and serve them faster
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"

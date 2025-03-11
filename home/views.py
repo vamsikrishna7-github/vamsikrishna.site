@@ -14,7 +14,7 @@ def homepage(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            messages.success(request, "Your message has been sent successfully!")
+            messages.success(request, "Your message has been successfully sent. A confirmation email has been sent to your inbox from contact@vamsikrishna.site. If you do not see it, please check your spam folder.")
             form.save()
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
@@ -28,7 +28,7 @@ def homepage(request):
             send_mail(
                 "Thank You for Contacting Me!",
                 "This is a plain text fallback message.", 
-                "vamsikrishna.nagidi@gmail.com",  
+                "contact@vamsikrishna.site",  
                 [email],  
                 fail_silently=False,
                 html_message=sender_html_content,  
@@ -39,7 +39,7 @@ def homepage(request):
             send_mail(
                 "New Contact Form Submission",
                 "A new message was received.",
-                "vamsikrishna.nagidi@gmail.com",
+                "contact@vamsikrishna.site",
                 ["vamsikrishna.nagidi@gmail.com"],
                 fail_silently=False,
                 html_message=admin_html_content,

@@ -18,7 +18,7 @@
       <div class="contact-buttons d-flex flex-column">
         <a target="_blank" href="https://github.com/vamsikrishna7-github"><img class="my-2" width="25" height="25" src="https://img.icons8.com/material-outlined/100/FFFFFF/github.png" alt="github"/></a>
         <a target="_blank" href="https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/"><img class="" width="25" height="25" src="https://img.icons8.com/ios-glyphs/120/FFFFFF/linkedin.png" alt="linkedin"/></a>
-        <a href="mailto:vamsikrishna.nagidi@gmail.com"><img class="my-2" width="23" height="23" src="https://img.icons8.com/glyph-neue/128/FFFFFF/gmail.png" alt="gmail"/></a>
+        <a href="mailto:contact@vamsikrishna.site"><img class="my-2" width="23" height="23" src="https://img.icons8.com/glyph-neue/128/FFFFFF/gmail.png" alt="gmail"/></a>
       </div>
     </div>
 
@@ -61,7 +61,7 @@
                     <p class="passage-text">
                         Passionate about full-stack development, I specialize in creating seamless user experiences and dynamic web applications. Open to work and job opportunities!
                     </p>
-                    <a href="#" class="custom-buttons btn btn-outline-primary border-0">Contact me!!</a>
+                    <a href="#contact" class="custom-buttons btn btn-outline-primary border-0">Contact me!!</a>
                 </div>
 
                 <!-- Add this to your base template (e.g., base.html) -->
@@ -73,10 +73,10 @@
     
                 <!-- Right Section - Image -->
                 <div class="text-center">
-                    <img id="home-img" src=" {% static 'img/home/hero.png' %} " class="p-1 img-fluid rounded" alt="Img not found">
+                    <img id="home-img" src=" {% static 'img/home/hero.webp' %} " class="p-1 img-fluid rounded" alt="Img not found">
                     <br>
                     <div class="d-inline passage-text border border-bottom p-1">
-                        <span class="bg-primary text-primary">. </span>&#8203; Currently working on <strong class="text-white">Portfolio</strong>
+                        <span class="bg-primary text-primary">. </span>&#8203; Currently working on <strong class="text-white"><a target="_blank" class="text-white text-decoration-none link-opacity-50-hover" href="https://github.com/vamsikrishna7-github/ranjith-fitclub.git">Ranjith FitClub</a></strong>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                       A responsive Django portfolio with a custom admin panel, auto-email responses, reCAPTCHA spam protection, contact form, and secure admin login.
                     </p>
                     <div>
-                      <a target="_blank" href="https://github.com/vamsikrishna7-github/vamsikrishna.in.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a target="_blank" href="https://github.com/vamsikrishna7-github/vamsikrishna.site" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
                         GitHub <img width="20" height="20" src="https://img.icons8.com/ios-filled/100/FFFFFF/source-code.png" alt="GitHub Icon"/>
                       </a>
                       <a target="_blank" href="{% url 'home' %}" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
@@ -169,7 +169,7 @@
                       <a target="_blank" href="https://github.com/vamsikrishna7-github/gameon.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
                         GitHub <img width="20" height="20" src="https://img.icons8.com/ios-filled/100/FFFFFF/source-code.png" alt="GitHub Icon"/>
                       </a>
-                      <a target="_blank" href="#" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a target="_blank" href="#" class="btn btn-outline-primary rounded-0 custom-buttons disabled" type="button">
                         Live <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Icon"/>
                       </a>
                     </div>
@@ -217,11 +217,18 @@
           <div class="d-md-flex d-sm-block pe-3 m-1">
             <div class="p-2 flex-fill">
               <p class="passage-text">Hello, i'm Vamsi krishna!</p>
-              <p class="passage-text">A passionate full-stack developer with skills in Python Django, Java, HTML, CSS, JavaScript, and Bootstrap. I also am proficient with MySQL and SQLite and have hands-on experience for Git. My interests also branch out to cybersecurity, where I have worked with Nmap, BurpSuite, becn Metasploit. I am very curious and enjoy complex problems which makes me excited to think about new challenges in the realms of web development and cybersecurity.</p>
-              <p class="passage-text display-text">Some projects I have worked on include Gameon, an interactive puzzle application that was built for soft skill evaluation, and a Blockchain Certificate Validation System that adds a layer of security and transparency to certificate validation through Ethereum smart contracts and IPFS storage. Recently, I worked on a Dynamic Portfolio Website wherein I integrated Django, SQLite, Bootstrap, and Javascript. The website displays changes instantly and is fully responsive. These projects have developed my understanding of backend logic, database management, and UI design.</p>
+              <p class="passage-text">A passionate <span class="text-white">Full-Stack Developer</span> skilled in <span class="text-white">Python Django, Java, HTML, CSS, JavaScript, Bootstrap, and proficient in MySQL, SQLite, and Git. </span> I specialize in backend <span class="text-white">logic, database management, and UI design</span>, ensuring seamless web experiences.</p>
+              <p class="passage-text"><span class="text-white">Freelancing Projects:</span> </p>
+              <p class="passage-text"> <span class="text-white"> ✔ Ranjith FitClub (Gym Management System)</span> – A comprehensive gym management solution with: 
+                Automated Emails, SMS, WhatsApp messages
+                Payment gateway (Razorpay, UPI), Invoice & Due date tracking
+                Custom Admin Login & Dashboard for easy gym management
+                Port payment links for seamless transactions</p>
+              <p class="passage-text display-text"><span class="text-white"> ✔ MyPortfolio (this site)</span> – A dynamic, responsive, and user-friendly portfolio showcasing my projects, skills, and experiences.
+                <br><br><span>Always eager to take on new freelance opportunities and tackle exciting challenges in web development!</span>
+              </p>
               <a id="link-hover" class="btn btn-link text-decoration-none hilate-text" onclick="knowmore(this)">Know more</a>
-              <p id="hide-info" class="passage-text">Aside from my development work, I have participated in an Ethical Hacking workshop at JNTUK Kakinada, where I practiced the essentials of penetration testing and cybersecurity techniques. I also hold</p>
-              <a target="_blank" href="https://drive.google.com/file/d/13eCkX86NRo0-ozmVZLaYdgv_i4FFJg6F/view?usp=drive_link" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">CV &rarr;</a>
+              <a target="_blank" href="https://drive.google.com/file/d/1sFcrBA-zeSxyzmvIWFjJzuKScHd4YpTV/view?usp=drive_link" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">CV &rarr;</a>
             </div>
             <!-- <div class="p-2 flex-fill d-md-flex text-center align-items-center ">
               <img src="./src/img/about/hero.png" alt="" class="img border-bottom border-primary mb-3" style="width: 290px; height: 300px;">
@@ -469,7 +476,7 @@
                       <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
-                      <a target="_blank" href="#" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a target="_blank" href="https://github.com/vamsikrishna7-github/vamsikrishna.site.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
                         Samples <img width="20" height="20" src="{% static 'img/services/work.png' %}" alt="Samples Icon"/>
                       </a>
 
@@ -494,7 +501,7 @@
                       <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
-                      <a target="_blank" href="#" class="btn btn-outline-primary rounded-0 custom-buttons disabled" type="button">
+                      <a target="_blank" href="https://github.com/vamsikrishna7-github/vamsikrishna.site.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
                         Samples <img width="20" height="20" src="{% static 'img/services/work.png' %}" alt="Samples Icon"/>
                       </a>
                     </div>
@@ -627,16 +634,16 @@
               {% csrf_token %}
                 <div class="row p-2">
                     <div class="col pe-1">
-                        <input type="text" name="name" class="form-control rounded-0 bg-transparent custom-placeholder text-white border-secondary" placeholder="Name" required>
+                        <input type="text" name="name" class="form-control rounded-0 bg-transparent custom-placeholder text-white border-secondary" placeholder="Your Name" required>
                     </div>
                     <div class="col">
-                        <input type="text" name="email" class="form-control rounded-0 bg-transparent custom-placeholder text-white border-secondary" placeholder="Email" onkeyup="validateEmail(this)" required>
+                        <input type="text" name="email" class="form-control rounded-0 bg-transparent custom-placeholder text-white border-secondary" placeholder="Your Email" onkeyup="validateEmail(this)" required>
                     </div>
                 </div>
                 <div class="row p-2">
                     <div class="col">
                       <input type="tel" name="phone" class="form-control rounded-0 bg-transparent custom-placeholder text-white border-secondary" 
-                        placeholder="Phone Number" required pattern="[0-9]{10,12}" title="Enter a valid phone number (10 digits)">
+                        placeholder="Your Phone Number" required pattern="[0-9]{10,12}" title="Enter a valid phone number (10 digits)">
                     </div>
                 </div>
                 <div class="row p-2">
@@ -725,7 +732,7 @@
         <!-- Left Side -->
         <div>
           <strong>Vamsi Krishna</strong>  
-          <p id="footer-mail" class="mb-1">vamsikrishna.nagidi@gmail.com</p>
+          <p id="footer-mail" class="mb-1">contact@vamsikrishna.site</p>
           <p class="mb-0 passage-text">Front-end & Back-end Developer</p>
         </div>
         
@@ -735,7 +742,7 @@
           <div class="d-flex gap-2 justify-content-end contact-buttons">
             <a target="_blank" href="https://github.com/vamsikrishna7-github" target="_blank"><img width="25" height="25" src="https://img.icons8.com/material-outlined/100/FFFFFF/github.png" alt="GitHub"/></a>
             <a target="_blank" href="https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/" target="_blank"><img width="25" height="25" src="https://img.icons8.com/ios-glyphs/120/FFFFFF/linkedin.png" alt="LinkedIn"/></a>
-            <a href="mailto:vamsikrishna.nagidi@gmail.com" target="_blank"><img width="23" height="23" src="https://img.icons8.com/glyph-neue/128/FFFFFF/gmail.png" alt="Gmail"/></a>
+            <a href="mailto:contact@vamsikrishna.site" target="_blank"><img width="23" height="23" src="https://img.icons8.com/glyph-neue/128/FFFFFF/gmail.png" alt="Gmail"/></a>
           </div>
         </div>
     
@@ -757,7 +764,7 @@
       const closeModalButton = document.getElementById('closeModalButton');
 
       closeModalButton.addEventListener('click', function() {
-      window.location.href = "http://127.0.0.1:8000/#contact"; 
+      window.location.href = "https://vamsikrishna.site/#contact"; 
       });
       
       function showMessageModal(message, isSuccess) {

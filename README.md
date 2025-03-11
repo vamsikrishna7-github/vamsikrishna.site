@@ -3,7 +3,7 @@
 Welcome to my open-source portfolio project! This Django-based portfolio includes an admin panel, automatic email responses, reCAPTCHA spam protection, and a secure contact form. 🚀
 ## 🌐 Live Demo
 
-Visit: [vamsikrishna.in](https://vamsikrishna.site)
+Visit: [www.vamsikrishna.site](https://vamsikrishna.site)
 
 ## Features
 
@@ -41,15 +41,15 @@ Follow these steps to set up the project on your local machine.
 ### 1️⃣ Clone the Repository
 
 ```bash
-    git clone https://github.com/vamsikrishna7-github/vamsikrishna.in.git
+    git https://github.com/vamsikrishna7-github/vamsikrishna.site.git
     cd vamsikrishna.in
 ```
 
 ### 2️⃣ Create a Virtual Environment (Optional but Recommended)
 
 ```bash
-    python -m venv vamsikrishna
-    source vamsikrishna/bin/activate  # For macOS/Linux
+    python -m venv vamsi
+    source vamsi/bin/activate  # For macOS/Linux
     vamsikrishna\Scripts\activate  # For Windows
 ```
 
@@ -116,7 +116,7 @@ This project is open-source! Feel free to fork, modify, and contribute via pull 
 ### 1. Fork the Repository
 
 ```bash
-git clone https://github.com/your-username/vamsikrishna.in.git
+git clone https://github.com/vamsikrishna7-github/vamsikrishna.site.git
 ```
 
 ### 2. Create a New Branch
@@ -142,8 +142,8 @@ git push origin feature-branch
 
 ## Troubleshooting 🛠
 If you face any issues during installation or setup, feel free to contact me:                                                                                
-📧 **Email:** vamsikrishna.nagidi@gmail.com  
-🌐 **Portfolio:** [vamsikrishna.in](https://vamsikrishna.site)  
+📧 **Email:** contact@vamsikrishna.site 
+🌐 **Portfolio:** [www.vamsikrishna.site](https://vamsikrishna.site/#contact)
 
 Made with ❤️ by **Vamsi Krishna**
 

@@ -20,11 +20,11 @@ Welcome to my open-source portfolio project! This Django-based portfolio include
 
 ## 🛠 Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap
-- **Backend:** Django (Python)
-- **Database:** SQLite (Can be switched to MySQL)
-- **Security:** reCAPTCHA, Django Admin Authentication
-- **Version Control:** Git, GitHub
+- 💻 **Frontend:** HTML, CSS, JavaScript, Bootstrap
+- ⚙️ **Backend:** Django (Python)
+- ⛃ **Database:** SQLite (Can be switched to MySQL)
+- 🛡️ **Security:** reCAPTCHA, Django Admin Authentication
+- </> **Version Control:** Git, GitHub
 
 ## Project Overview
 This is a responsive Django portfolio with:
@@ -143,7 +143,7 @@ git push origin feature-branch
 
 ## Troubleshooting 🛠
 If you face any issues during installation or setup, feel free to contact me:                                                                                
-📧 **Email:** contact@vamsikrishna.site 
+📧 **Email:** contact@vamsikrishna.site                             
 🌐 **Portfolio:** [www.vamsikrishna.site](https://vamsikrishna.site/#contact)
 
 Made with ❤️ by **Vamsi Krishna**

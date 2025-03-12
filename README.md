@@ -3,7 +3,8 @@
 Welcome to my open-source portfolio project! This Django-based portfolio includes an admin panel, automatic email responses, reCAPTCHA spam protection, and a secure contact form. 🚀
 ## 🌐 Live Demo
 
-Visit: [www.vamsikrishna.site](https://vamsikrishna.site)
+![Image](https://github.com/user-attachments/assets/02498b93-7f79-41b8-977a-7dbe3511b7e7)
+🌐 Visit: [www.vamsikrishna.site](https://vamsikrishna.site)
 
 ## Features
 

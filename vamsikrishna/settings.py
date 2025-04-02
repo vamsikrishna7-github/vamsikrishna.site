@@ -39,6 +39,7 @@ else:
         "www.blog.vamsikrishna.site",
         "vamsikrishna-site.onrender.com",
         "https://vamsi-blog-84xx2xkmr-vamsikrishnas-projects-6e5d2b0a.vercel.app/",
+        "https://vamsi-blog.vercel.app/",
     ]
 
 if DEBUG:
@@ -56,6 +57,7 @@ else:
         "https://blog.vamsikrishna.site",
         "https://vamsikrishna.site",
         "https://vamsi-blog-84xx2xkmr-vamsikrishnas-projects-6e5d2b0a.vercel.app/",
+        "https://vamsi-blog.vercel.app/",
     ]
 
 # Allow additional headers

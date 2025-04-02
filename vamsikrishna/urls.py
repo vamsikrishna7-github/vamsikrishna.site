@@ -42,8 +42,17 @@ urlpatterns = [
 
 ]
 
-# Serve media files manually in production
-if not settings.DEBUG:
-    urlpatterns += [
-        re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
-    ]
+# # Serve media files manually in production
+# if not settings.DEBUG:
+#     urlpatterns += [
+#         re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+#     ]
+
+urlpatterns += [
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+]
+
+# Only serve static files this way in development
+if settings.DEBUG:
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+    urlpatterns += staticfiles_urlpatterns()

@@ -52,13 +52,15 @@ if DEBUG:
     ]
 else:
     # Production: Allow only specific domains
-    CORS_ALLOW_ALL_ORIGINS = False  
+    CORS_ALLOW_ALL_ORIGINS = False
     CORS_ALLOWED_ORIGINS = [
+        "https://vamsi-blog.vercel.app",
         "https://blog.vamsikrishna.site",
         "https://vamsikrishna.site",
-        "https://vamsi-blog-84xx2xkmr-vamsikrishnas-projects-6e5d2b0a.vercel.app/",
-        "https://vamsi-blog.vercel.app/",
     ]
+
+# Add this to explicitly allow media files
+CORS_ALLOW_CREDENTIALS = True
 
 # Allow additional headers
 CORS_ALLOW_HEADERS = list(default_headers) + [

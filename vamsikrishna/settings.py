@@ -37,6 +37,8 @@ else:
         "www.vamsikrishna.site",
         "blog.vamsikrishna.site",
         "www.blog.vamsikrishna.site",
+        "render.com",
+        "www.render.com",
     ]
 
 if DEBUG:
@@ -133,6 +135,7 @@ DATABASES = {
     )
 }
 
+DATABASE_URL = "postgresql://neondb_owner:npg_mfeMUXr40blK@ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech/vamsikrishna_site?sslmode=require"
 
 # DATABASES = {
 #     'default': {

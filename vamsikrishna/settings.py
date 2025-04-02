@@ -30,15 +30,14 @@ SECRET_KEY = 'django-insecure-#6p#pz(%pk68(3lg1+^hh90&ro8x*eazi7upof5n@!4v)ii0(t
 DEBUG = False  # production False
 
 if DEBUG:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 else:
     ALLOWED_HOSTS = [
         "vamsikrishna.site",
         "www.vamsikrishna.site",
         "blog.vamsikrishna.site",
         "www.blog.vamsikrishna.site",
-        "render.com",
-        "www.render.com",
+        "vamsikrishna-site.onrender.com",
     ]
 
 if DEBUG:

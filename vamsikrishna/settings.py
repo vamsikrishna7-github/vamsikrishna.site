@@ -38,6 +38,7 @@ else:
         "blog.vamsikrishna.site",
         "www.blog.vamsikrishna.site",
         "vamsikrishna-site.onrender.com",
+        "https://vamsi-blog-84xx2xkmr-vamsikrishnas-projects-6e5d2b0a.vercel.app/",
     ]
 
 if DEBUG:
@@ -54,6 +55,7 @@ else:
     CORS_ALLOWED_ORIGINS = [
         "https://blog.vamsikrishna.site",
         "https://vamsikrishna.site",
+        "https://vamsi-blog-84xx2xkmr-vamsikrishnas-projects-6e5d2b0a.vercel.app/",
     ]
 
 # Allow additional headers

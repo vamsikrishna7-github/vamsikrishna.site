@@ -11,3 +11,8 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"Message from {self.name}"
+    
+class VisitorCount(models.Model):
+    views = models.PositiveIntegerField(default=0)
+    def __str__(self):
+        return f"Total Views: {self.views}"

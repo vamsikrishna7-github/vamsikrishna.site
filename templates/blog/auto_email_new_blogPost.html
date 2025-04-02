@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f4f4f4; color: #333; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); text-align: center; }
+        .header { background: #4a6fa5; color: white; padding: 15px; border-radius: 8px 8px 0 0; }
+        .button { background: #4a6fa5; color: white; padding: 12px 20px; text-decoration: none; display: inline-block; border-radius: 5px; margin-top: 20px; }
+        a { color: #4a6fa5; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>New Blog Post: {{ title }}</h2>
+        </div>
+        
+        <p>Hi {{ name }},</p>
+        
+        <p>A new blog post has been published on my tech blog:</p>
+        
+        <h3>{{ title }}</h3>
+        {% if subtitle %}<h4>{{ subtitle }}</h4>{% endif %}
+        
+        <p>{{ excerpt }}...</p>
+        
+        <a href="{{ blog_url }}" class="button">Read More</a>
+        
+        <p>If you no longer wish to receive updates, you can <a href="{{ unsubscribe_url }}">unsubscribe here</a>.</p>
+        
+        <p>Best Regards,<br>Vamsi Krishna<br><a href="mailto:contact@vamsikrishna.site">contact@vamsikrishna.site</a></p>
+    </div>
+</body>
+</html>

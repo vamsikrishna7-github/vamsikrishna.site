@@ -1,0 +1,98 @@
+from django.apps import apps
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+from blog.models import NewsletterSubscriber
+
+
+#blog and portfolio visitor count
+def increment_visitor_count():
+    VisitorCount = apps.get_model('home', 'VisitorCount')
+    visitor, created = VisitorCount.objects.get_or_create(id=1)
+    visitor.views += 1
+    visitor.save()
+    return visitor.views 
+
+#auto blog subscribe email
+def auto_email_subscribe(email, name):
+    html_content = render_to_string(
+        "blog/auto_email_subscribe.html",
+        {"name": name}
+    )
+    
+    send_mail(
+        subject="Thanks for subscribing!",
+        message=f"Hi {name},\n\nThanks for subscribing to my content!\n\n"
+                "Unsubscribe anytime: https://blog.vamsikrishna.site/unsubscribe\n\n"
+                "Best,\nVamsi",
+        from_email="contact@vamsikrishna.site",
+        recipient_list=[email],
+        html_message=html_content
+    )
+    return "send"
+
+#auto blog unsubscribe email
+def send_unsubscribe_email(email):
+    html_content = render_to_string(
+        "blog/auto_email_unsubscribe.html",
+        {"blog_url": "https://blog.vamsikrishna.site/"}
+    )
+    
+    send_mail(
+        subject="You're unsubscribed",
+        message="You've been unsubscribed from our tech blog.\n\n"
+               "Visit our blog: https://blog.vamsikrishna.site/",
+        from_email="contact@vamsikrishna.site",
+        recipient_list=[email],
+        html_message=html_content
+    )
+
+#auto contact email to sender and admin portfolio
+def send_emails_in_thread(name, email, phone=None, title=None, project_type=None, message=None):
+    # Sender email
+    sender_html = render_to_string("email/auto_email_sender.html", {"name": name})
+    send_mail(
+        "Thank You for Contacting Me!",
+        "This is a plain text fallback message.", 
+        "contact@vamsikrishna.site",
+        [email],
+        fail_silently=False,
+        html_message=sender_html,
+    )
+
+    # Admin email
+    admin_html = render_to_string("email/auto_email_admin.html", {
+        "name": name,
+        "email": email,
+        "phone": phone,
+        "subject": title,
+        "project_type": project_type,
+        "message": message
+    })
+    send_mail(
+        "New Contact Form Submission",
+        "A new message was received.",
+        "contact@vamsikrishna.site",
+        ["vamsikrishna.nagidi@gmail.com"],
+        fail_silently=False,
+        html_message=admin_html,
+    )
+
+#auto email subscribers new blog post
+def auto_email_new_BlogPost(blog_post):
+    for subscriber in NewsletterSubscriber.objects.all():
+        send_mail(
+            subject=f"New Blog Post: {blog_post.title}",
+            message=f"Hi {subscriber.name},\n\nA new blog post is available: {blog_post.title}.\n\n"
+                    f"Read more: https://blog.vamsikrishna.site/blog/{blog_post.slug}\n\nBest,\nVamsi",
+            from_email="contact@vamsikrishna.site",
+            recipient_list=[subscriber.email],
+            html_message=render_to_string("blog/auto_email_new_blogPost.html", {
+                "name": subscriber.name,
+                "title": blog_post.title,
+                "subtitle": blog_post.subtitle,
+                "excerpt": blog_post.content[:200],
+                "blog_url": f"https://blog.vamsikrishna.site/blog/{blog_post.slug}",
+                "unsubscribe_url": "https://blog.vamsikrishna.site/unsubscribe",
+            })
+        )
+    return "Emails sent"

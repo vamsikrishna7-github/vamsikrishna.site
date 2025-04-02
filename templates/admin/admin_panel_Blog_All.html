@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mt-5 mx-2" id="blog">
+    <h4 class="text-white"><span class="text-primary">/</span>All Blog Posts</h4>
+    <div class="table-responsive mb-5">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Slug</th>
+                    <th>Title</th>
+                    <th>subtitle</th>
+                    <th>main_image</th>
+                    <th>content</th>
+                    <th>sec1_title</th>
+                    <th>sec1_content</th>
+                    <th>sec1_lang_title</th>
+                    <th>sec1_lang</th>
+                    <th>sec1_image</th>
+                    <th>sec2_title</th>
+                    <th>sec2_content</th>
+                    <th>sec2_lang_title</th>
+                    <th>sec2_lang</th>
+                    <th>sec2_image</th>
+                    <th>sec3_title</th>
+                    <th>sec3_content</th>
+                    <th>sec3_lang_title</th>
+                    <th>sec3_lang</th>
+                    <th>sec3_image</th>
+                    <th>sec4_title</th>
+                    <th>sec4_content</th>
+                    <th>sec4_lang_title</th>
+                    <th>sec4_lang</th>
+                    <th>sec4_image</th>
+                    <th>sec5_title</th>
+                    <th>sec5_content</th>
+                    <th>sec5_lang_title</th>
+                    <th>sec5_lang</th>
+                    <th>sec5_image</th>
+                    <th>link1_text</th>
+                    <th>link1_url</th>
+                    <th>link2_text</th>
+                    <th>link2_url</th>
+                    <th>link3_text</th>
+                    <th>link3_url</th>
+                    <th>conclusion_title</th>
+                    <th>conclusion_content</th>
+                    <th>linkconclusion_text</th>
+                    <th>linkconclusion_url</th>
+                    <th>views</th>
+                    <th>likes</th>
+                    <th>posted_at</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td class="text-white"><strong>{{post.slug}}</strong></td>
+                    <td>{{post.title|truncatechars:100}}</td>
+                    <td>{{post.subtitle|truncatechars:100}}</td>
+                    <td>
+                        {% if post.main_image %}
+                            <img src="{{ post.main_image.url }}" alt="Blog Image" 
+                                 style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                            {% else %}
+                            <small>No image</small>
+                        {% endif %}
+                    </td>
+                    <td>{{post.content|truncatechars:100}}</td>
+                    <td>{{post.sec1_title|truncatechars:100}}</td>
+                    <td>{{post.sec1_content|truncatechars:100}}</td>
+                    <td>{{post.sec1_lang_title|truncatechars:100}}</td>
+                    <td>{{post.sec1_lang|truncatechars:100}}</td>
+                    <td>
+                        {% if post.sec1_image %}
+                            <img src="{{ post.sec1_image.url }}" alt="Blog Image" 
+                                 style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                            {% else %}
+                            <small>No image</small>
+                        {% endif %}
+                    </td>
+                    <td>{{post.sec2_title|truncatechars:100}}</td>
+                    <td>{{post.sec2_content|truncatechars:100}}</td>
+                    <td>{{post.sec2_lang_title|truncatechars:100}}</td>
+                    <td>{{post.sec2_lang|truncatechars:100}}</td>
+                    <td>
+                        {% if post.sec2_image %}
+                            <img src="{{ post.sec2_image.url }}" alt="Blog Image" 
+                                 style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                            {% else %}
+                            <small>No image</small>
+                        {% endif %}
+                    </td>
+                    <td>{{post.sec3_title|truncatechars:100}}</td>
+                    <td>{{post.sec3_content|truncatechars:100}}</td>
+                    <td>{{post.sec3_lang_title|truncatechars:100}}</td>
+                    <td>{{post.sec3_lang|truncatechars:100}}</td>
+                    <td>
+                        {% if post.sec3_image %}
+                            <img src="{{ post.sec3_image.url }}" alt="Blog Image" 
+                                 style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                            {% else %}
+                            <small>No image</small>
+                        {% endif %}
+                    </td>
+                    <td>{{post.sec4_title|truncatechars:100}}</td>
+                    <td>{{post.sec4_content|truncatechars:100}}</td>
+                    <td>{{post.sec4_lang_title|truncatechars:100}}</td>
+                    <td>{{post.sec4_lang|truncatechars:100}}</td>
+                    <td>
+                        {% if post.sec4_image %}
+                            <img src="{{ post.sec4_image.url }}" alt="Blog Image" 
+                                 style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                            {% else %}
+                            <small>No image</small>
+                        {% endif %}
+                    </td>
+                    <td>{{post.sec5_title|truncatechars:100}}</td>
+                    <td>{{post.sec5_content|truncatechars:100}}</td>
+                    <td>{{post.sec5_lang_title|truncatechars:100}}</td>
+                    <td>{{post.sec5_lang|truncatechars:100}}</td>
+                    <td>
+                        {% if post.sec5_image %}
+                            <img src="{{ post.sec5_image.url }}" alt="Blog Image" 
+                                 style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                            {% else %}
+                            <small>No image</small>
+                        {% endif %}
+                    </td>
+                    <td>{{post.link1_text}}</td>
+                    <td>{{post.link1_url|truncatechars:100}}</td>
+                    <td>{{post.link2_text}}</td>
+                    <td>{{post.link2_url|truncatechars:100}}</td>
+                    <td>{{post.link3_text}}</td>
+                    <td>{{post.link3_url|truncatechars:100}}</td>
+                    <td>{{post.conclusion_title|truncatechars:100}}</td>
+                    <td>{{post.conclusion_content|truncatechars:100}}</td>
+                    <td>{{post.linkconclusion_text}}</td>
+                    <td>{{post.linkconclusion_url|truncatechars:100}}</td>
+                    <td>{{post.views}}</td>
+                    <td>{{post.likes}}</td>
+                    <td>{{post.posted_at}}</td>
+                    <td>
+                        <a class="btn btn-primary mb-2" href="{% url 'edit_blog_post' post.id %}">Edit</a>
+                        <a class="btn btn-danger" href="{% url 'del_blog_post' post.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="42" class="text-center">No blog posts found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    td{
+        background-color: transparent !important;
+        color: #ababab !important;
+    }
+</style>
+{% endblock %}

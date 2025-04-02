@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
+html {
+    scroll-padding-top: 60px; 
+    scroll-behavior: smooth;
+  }
+  
 body {
     font-family: 'Fira Code', monospace;
     font-weight: 400;
@@ -9,6 +14,13 @@ body {
     background-color: #282c33;
     overflow-x: hidden;
 
+}
+.nav-link:hover{
+    font-weight: 600 !important;
+    color: rgb(255, 255, 255) !important;
+}
+.navbar {
+    background-color: #282c33 !important;
 }
 i:hover {
     color: blue !important;
@@ -28,3 +40,11 @@ table {
     color: gray;
 }
 
+input, textarea{
+    border: 1px solid #6c757d !important;
+}
+
+input:focus, textarea:focus{
+    border: 1px solid rgb(255, 255, 255) !important;
+    box-shadow: none !important;
+}

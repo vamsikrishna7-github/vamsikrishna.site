@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from corsheaders.defaults import default_headers
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,11 +27,38 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#6p#pz(%pk68(3lg1+^hh90&ro8x*eazi7upof5n@!4v)ii0(t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # production False
+DEBUG = True  # production False
 
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS=['vamsikrishna.site', 'www.vamsikrishna.site'] #production
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    ALLOWED_HOSTS = [
+        "vamsikrishna.site",
+        "www.vamsikrishna.site",
+        "blog.vamsikrishna.site",
+        "www.blog.vamsikrishna.site",
+    ]
 
+if DEBUG:
+    # Development: Allow all origins for easier testing
+    CORS_ALLOW_ALL_ORIGINS = True  
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://192.168.38.234:3000",
+    ]
+else:
+    # Production: Allow only specific domains
+    CORS_ALLOW_ALL_ORIGINS = False  
+    CORS_ALLOWED_ORIGINS = [
+        "https://blog.vamsikrishna.site",
+        "https://vamsikrishna.site",
+    ]
+
+# Allow additional headers
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "content-disposition",
+]
 
 # Application definition
 
@@ -42,9 +72,13 @@ INSTALLED_APPS = [
     'home',
     'captcha',
     'django_recaptcha',
+    'blog',
+    'rest_framework', #api
+    "corsheaders", # Media files for api
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware", # media files for api
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -78,12 +112,45 @@ WSGI_APPLICATION = 'vamsikrishna.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+# DATABASES = {
+#     'default': dj_database_url.config(default="postgresql://neondb_owner:npg_mfeMUXr40blK@ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech/vamsikrishna_site?sslmode=require")
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default="postgresql://neondb_owner:npg_mfeMUXr40blK@ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech/vamsikrishna_site?sslmode=require",
+        conn_max_age=600,  # Keep the connection open for 10 minutes
+        ssl_require=True,  # Ensure SSL is enabled
+    )
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'vamsikrishna_site',
+#         'USER': 'neondb_owner',
+#         'PASSWORD': 'npg_mfeMUXr40blK',
+#         'HOST': 'ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech',
+#         'PORT': '5432',
+#         'CONN_MAX_AGE': 600, 
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         },
+#     }
+# }
+
+
+
 
 
 # Password validation
@@ -155,19 +222,27 @@ EMAIL_HOST_PASSWORD = 'MKVEca9WUERn'  # Your Zoho App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Default sender email
 
 
-# # captcha settings
-RECAPTCHA_PUBLIC_KEY = "6Lds4e0qAAAAAMo-hNW5n7ViSl29D6vZBmGJPKGj"
-RECAPTCHA_PRIVATE_KEY = "6Lds4e0qAAAAAEU5awIdxjQz1bPVZ80RBfe1PZnD"
-
-# #test captcha settings
-# RECAPTCHA_PUBLIC_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-# RECAPTCHA_PRIVATE_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
-# SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
-
-
-# SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
+#Email Settings
+if DEBUG:
+    # Test reCAPTCHA keys (for development)
+    RECAPTCHA_PUBLIC_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+    RECAPTCHA_PRIVATE_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+    SILENCED_SYSTEM_CHECKS = ["django_recaptcha.recaptcha_test_key_error"]
+else:
+    # Production reCAPTCHA keys (replace with your real keys)
+    RECAPTCHA_PUBLIC_KEY = "6Lds4e0qAAAAAMo-hNW5n7ViSl29D6vZBmGJPKGj"
+    RECAPTCHA_PRIVATE_KEY = "6Lds4e0qAAAAAEU5awIdxjQz1bPVZ80RBfe1PZnD"
 
 RECAPTCHA_REQUIRED = True
 
 #This will store optimized static files and serve them faster
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
+
+# Media files Blog images are stored in the media folder
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#date and time 
+TIME_ZONE = 'Asia/Kolkata'
+USE_TZ = True 

@@ -3,14 +3,15 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import ContactForm
 from .models import ContactMessage
+from blog.models import NewsletterSubscriber
 from django.contrib.auth.decorators import login_required
-from django.template.loader import render_to_string
-from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_protect
-
+from utils import increment_visitor_count, send_emails_in_thread
+from threading import Thread
 
 @csrf_protect
 def homepage(request):
+    views = increment_visitor_count()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -23,33 +24,17 @@ def homepage(request):
             project_type = form.cleaned_data['project_type']
             message = form.cleaned_data['message']
 
-            #auto response to the sender
-            sender_html_content = render_to_string("email/auto_email_sender.html", {"name": name})
-            send_mail(
-                "Thank You for Contacting Me!",
-                "This is a plain text fallback message.", 
-                "contact@vamsikrishna.site",  
-                [email],  
-                fail_silently=False,
-                html_message=sender_html_content,  
+            email_thread = Thread(
+            target=send_emails_in_thread,
+            args=(name, email, phone, title, project_type, message)
             )
-
-            #auto response to the admin
-            admin_html_content = render_to_string("email/auto_email_admin.html", {"name": name, "email": email, "phone":phone, "subject": title, "project_type":project_type ,"message": message})
-            send_mail(
-                "New Contact Form Submission",
-                "A new message was received.",
-                "contact@vamsikrishna.site",
-                ["vamsikrishna.nagidi@gmail.com"],
-                fail_silently=False,
-                html_message=admin_html_content,
-            )
+            email_thread.start()
             return redirect('home')
         else:
             messages.error(request, "Captcha is not valid. try again!")
     else:
         form = ContactForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'index.html', {'form': form, 'views': views})
 
 def admin_login(request):
     if request.user.is_authenticated:
@@ -72,7 +57,8 @@ def admin_login(request):
 @login_required(login_url='/admin/')
 def admin_panel(request):
     messages = ContactMessage.objects.all().order_by("-created_at")
-    return render(request, "admin/admin_panel.html", {"messages": messages})
+    subscribed_users = NewsletterSubscriber.objects.all().order_by("-subscribed_at")
+    return render(request, "admin/admin_panel.html", {"messages": messages,  "subscribers":subscribed_users})
 
 @login_required(login_url='/admin/')
 def admin_logout(request):

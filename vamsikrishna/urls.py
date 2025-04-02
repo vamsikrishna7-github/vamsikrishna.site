@@ -1,10 +1,12 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from home import views
 from blog.views import add_subscriber, view_count, unsubscribe
 from blog.views import delete_subscriber, create_blog_post, blog_post_list, del_blog_post, edit_blog_post, get_blog_posts_full, get_blog_post_full_by_slug, get_blogs_search, like_blog
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve  # Import serve for media files
+
 
 urlpatterns = [
     path('', views.homepage, name='home'),
@@ -40,5 +42,8 @@ urlpatterns = [
 
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Serve media files manually in production
+if not settings.DEBUG:
+    urlpatterns += [
+        re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+    ]

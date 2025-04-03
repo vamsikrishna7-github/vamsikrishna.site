@@ -28,6 +28,7 @@ ALLOWED_HOSTS = [
     "vamsikrishna.site",
     "www.vamsikrishna.site",
     "blog.vamsikrishna.site",
+    "www.blog.vamsikrishna.site",
     "vamsikrishna-site.onrender.com",  # Render backend
     "vamsi-blog.vercel.app",  # Vercel frontend
 ]
@@ -47,8 +48,7 @@ CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS  # Allow trusted origins for CSRF
 
 # ✅ Redirect HTTP to HTTPS
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-SECURE_SSL_REDIRECT = True  # Force HTTPS
-
+SECURE_SSL_REDIRECT = False
 # Application Definition
 INSTALLED_APPS = [
     "corsheaders",

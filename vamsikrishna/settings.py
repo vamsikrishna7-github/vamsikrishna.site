@@ -87,10 +87,15 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://.*\.vamsikrishna\.site$",  # Allow any subdomain
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ["*"]  # Allow all headers
+CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders", # Media files for api
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,7 +109,6 @@ INSTALLED_APPS = [
     'cloudinary_storage', #cloud images storage
     'blog',
     'rest_framework', #api
-    "corsheaders", # Media files for api
 ]
 
 MIDDLEWARE = [

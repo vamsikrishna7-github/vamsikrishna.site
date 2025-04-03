@@ -37,7 +37,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#6p#pz(%pk68(3lg1+^hh90&ro8x*eazi7upof5n@!4v)ii0(t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # production False
+DEBUG = True  # production False
 
 if DEBUG:
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
@@ -62,7 +62,7 @@ if DEBUG:
     ]
 else:
     # Production: Allow only specific domains
-    CORS_ALLOW_ALL_ORIGINS = False
+    CORS_ALLOW_ALL_ORIGINS = True
     CORS_ALLOWED_ORIGINS = [
         "https://vamsi-blog.vercel.app",
         "https://blog.vamsikrishna.site",

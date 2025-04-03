@@ -77,6 +77,10 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     "content-disposition",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://blog.vamsikrishna.site",
+]
+
 # Application definition
 
 INSTALLED_APPS = [

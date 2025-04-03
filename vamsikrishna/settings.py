@@ -37,7 +37,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#6p#pz(%pk68(3lg1+^hh90&ro8x*eazi7upof5n@!4v)ii0(t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # production False
+DEBUG = False  # production False
 
 if DEBUG:
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
@@ -47,32 +47,32 @@ else:
         "www.vamsikrishna.site",
         "blog.vamsikrishna.site",
         "www.blog.vamsikrishna.site",
-        "vamsikrishna-site.onrender.com",
-        "https://vamsi-blog-84xx2xkmr-vamsikrishnas-projects-6e5d2b0a.vercel.app/",
-        "https://vamsi-blog.vercel.app/",
+        "vamsikrishna-site.onrender.com",  # Render backend (if needed)
+        "vamsi-blog-84xx2xkmr-vamsikrishnas-projects-6e5d2b0a.vercel.app",  # Vercel test deployment
+        "vamsi-blog.vercel.app",  # Vercel frontend
     ]
 
+
 if DEBUG:
-    # Development: Allow all origins for easier testing
-    CORS_ALLOW_ALL_ORIGINS = True  
+    CORS_ALLOW_ALL_ORIGINS = False
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://192.168.38.234:3000",
     ]
 else:
-    # Production: Allow only specific domains
-    CORS_ALLOW_ALL_ORIGINS = True
+    CORS_ALLOW_ALL_ORIGINS = False  # Restrict to specific origins
     CORS_ALLOWED_ORIGINS = [
-        "https://vamsi-blog.vercel.app",
+        "https://www.blog.vamsikrishna.site",
         "https://blog.vamsikrishna.site",
+        "https://www.vamsikrishna.site",
         "https://vamsikrishna.site",
     ]
 
-# Add this to explicitly allow media files
+# Allow credentials (for authentication and media access)
 CORS_ALLOW_CREDENTIALS = True
 
-# Allow additional headers
+# Allow additional headers, including content-disposition for file downloads
 CORS_ALLOW_HEADERS = list(default_headers) + [
     "content-disposition",
 ]
@@ -140,11 +140,6 @@ WSGI_APPLICATION = 'vamsikrishna.wsgi.application'
 # }
 
 
-# DATABASES = {
-#     'default': dj_database_url.config(default="postgresql://neondb_owner:npg_mfeMUXr40blK@ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech/vamsikrishna_site?sslmode=require")
-# }
-
-
 DATABASES = {
     'default': dj_database_url.config(
         default="postgresql://neondb_owner:npg_mfeMUXr40blK@ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech/vamsikrishna_site?sslmode=require",
@@ -154,22 +149,6 @@ DATABASES = {
 }
 
 DATABASE_URL = "postgresql://neondb_owner:npg_mfeMUXr40blK@ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech/vamsikrishna_site?sslmode=require"
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'vamsikrishna_site',
-#         'USER': 'neondb_owner',
-#         'PASSWORD': 'npg_mfeMUXr40blK',
-#         'HOST': 'ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech',
-#         'PORT': '5432',
-#         'CONN_MAX_AGE': 600, 
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         },
-#     }
-# }
-
 
 
 

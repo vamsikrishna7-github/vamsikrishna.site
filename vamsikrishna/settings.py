@@ -60,16 +60,14 @@ if DEBUG:
         "http://127.0.0.1:3000",
         "http://192.168.38.234:3000",
     ]
-else:
-    CORS_ALLOW_ALL_ORIGINS = False  # Restrict to specific origins
-    CORS_ALLOWED_ORIGINS = [
-        "https://www.blog.vamsikrishna.site",
-        "https://blog.vamsikrishna.site",
-        "https://www.vamsikrishna.site",
-        "https://vamsikrishna.site",
-    ]
+CORS_ALLOW_ALL_ORIGINS = False  # Keep security
+CORS_ALLOWED_ORIGINS = [
+    "https://blog.vamsikrishna.site",
+    "https://www.blog.vamsikrishna.site",
+    "https://vamsikrishna.site",
+    "https://www.vamsikrishna.site",
+]
 
-# Allow credentials (for authentication and media access)
 CORS_ALLOW_CREDENTIALS = True
 
 # Allow additional headers, including content-disposition for file downloads
@@ -79,7 +77,16 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
 
 CSRF_TRUSTED_ORIGINS = [
     "https://blog.vamsikrishna.site",
+    "https://www.blog.vamsikrishna.site",
+    "https://vamsikrishna.site",
+    "https://www.vamsikrishna.site",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vamsikrishna\.site$",  # Allow any subdomain
+]
+
 
 # Application definition
 

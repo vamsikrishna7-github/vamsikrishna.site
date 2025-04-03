@@ -60,7 +60,7 @@ if DEBUG:
         "http://127.0.0.1:3000",
         "http://192.168.38.234:3000",
     ]
-CORS_ALLOW_ALL_ORIGINS = False  # Keep security
+CORS_ALLOW_ALL_ORIGINS = True  # Keep security
 CORS_ALLOWED_ORIGINS = [
     "https://blog.vamsikrishna.site",
     "https://www.blog.vamsikrishna.site",
@@ -82,7 +82,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://www.vamsikrishna.site",
 ]
 
-CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://.*\.vamsikrishna\.site$",  # Allow any subdomain
 ]

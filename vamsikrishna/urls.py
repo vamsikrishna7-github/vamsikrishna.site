@@ -38,8 +38,6 @@ urlpatterns = [
     path("api/unsubscribe/", unsubscribe, name="unsubscribe"),
     path('api/subscribe/', add_subscriber, name='subscribe'),
 
-
-
 ]
 
 # # Serve media files manually in production

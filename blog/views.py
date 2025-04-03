@@ -109,6 +109,12 @@ def create_blog_post(request):
 @login_required(login_url='/admin/')
 def blog_post_list(request):
     posts = BlogPosts.objects.all().order_by('-posted_at')
+    for post in posts:
+        if post.main_image:
+            file_extension = post.main_image.url.split('.')[-1].lower()
+            post.is_video = file_extension in ["mp4", "webm", "ogg"]
+        else:
+            post.is_video = False
     return render(request, 'admin/admin_panel_Blog_All.html', {'posts': posts})
 
 #Delete

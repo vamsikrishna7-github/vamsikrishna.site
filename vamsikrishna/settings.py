@@ -14,7 +14,17 @@ from pathlib import Path
 import os
 from corsheaders.defaults import default_headers
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from django.conf import settings
 
+
+cloudinary.config( 
+  cloud_name = "djzsfnsjj",  
+  api_key = "489235114815498",  
+  api_secret = "HKC-xb3NsenxGSB4ChZSidi7J9c"  
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +37,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#6p#pz(%pk68(3lg1+^hh90&ro8x*eazi7upof5n@!4v)ii0(t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # production False
+DEBUG = True  # production False
 
 if DEBUG:
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
@@ -79,6 +89,8 @@ INSTALLED_APPS = [
     'home',
     'captcha',
     'django_recaptcha',
+    'cloudinary', #cloud images storage
+    'cloudinary_storage', #cloud images storage
     'blog',
     'rest_framework', #api
     "corsheaders", # Media files for api
@@ -206,7 +218,7 @@ STATICFILES_DIRS = [
 ]
 
 # Media files (Uploaded images)
-MEDIA_URL = "/media/"
+# MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
@@ -257,3 +269,18 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesSto
 #date and time 
 TIME_ZONE = 'Asia/Kolkata'
 USE_TZ = True 
+
+
+
+# # Cloudinary Config
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'djzsfnsjj',  # Your Cloudinary Cloud Name
+#     'API_KEY': '489235114815498',  # Your Cloudinary API Key
+#     'API_SECRET': 'HKC-xb3NsenxGSB4ChZSidi7J9c',  # Your Cloudinary API Secret
+# }
+
+# Set default storage for media files
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Set MEDIA_URL for Cloudinary
+MEDIA_URL = f'https://res.cloudinary.com/djzsfnsjj/'

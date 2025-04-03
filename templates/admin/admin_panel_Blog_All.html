@@ -63,8 +63,15 @@
                     <td>{{post.subtitle|truncatechars:100}}</td>
                     <td>
                         {% if post.main_image %}
-                            <img src="{{ post.main_image.url }}" alt="Blog Image" 
-                                 style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                            {% if post.is_video %}
+                                <video width="80" height="50" controls style="border-radius: 5px; object-fit: cover;">
+                                    <source src="{{ post.main_image.url }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            {% else %}
+                                <img src="{{ post.main_image.url }}" alt="Blog Image" 
+                                    style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                            {% endif %}
                             {% else %}
                             <small>No image</small>
                         {% endif %}

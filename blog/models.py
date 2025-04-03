@@ -1,13 +1,15 @@
 from django.utils.text import slugify
 from django.db import models
 import uuid
+from cloudinary.models import CloudinaryField
 
 class BlogPosts(models.Model):
     # Core Fields
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     subtitle = models.CharField(max_length=255, blank=True, null=True)
-    main_image = models.ImageField(upload_to='blog_images/')
+    main_image = CloudinaryField('blog_media', resource_type='auto', blank=True, null=True)
+
     content = models.TextField()
 
     # --- Sections 1-5 ---
@@ -16,39 +18,39 @@ class BlogPosts(models.Model):
     sec1_content = models.TextField(blank=True, null=True)
     sec1_lang = models.TextField(blank=True, null=True)
     sec1_lang_title = models.CharField(max_length=100, blank=True, null=True)
-    sec1_image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
+    sec1_image = CloudinaryField('blog_media', resource_type='auto', blank=True, null=True)
 
     # Section 2
     sec2_title = models.CharField(max_length=255, blank=True, null=True)
     sec2_content = models.TextField(blank=True, null=True)
     sec2_lang = models.TextField(blank=True, null=True)
     sec2_lang_title = models.CharField(max_length=100, blank=True, null=True)
-    sec2_image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
+    sec2_image = CloudinaryField('blog_media', resource_type='auto', blank=True, null=True)
 
     # Section 3
     sec3_title = models.CharField(max_length=255, blank=True, null=True)
     sec3_content = models.TextField(blank=True, null=True)
     sec3_lang = models.TextField(blank=True, null=True)
     sec3_lang_title = models.CharField(max_length=100, blank=True, null=True)
-    sec3_image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
+    sec3_image = CloudinaryField('blog_media', resource_type='auto', blank=True, null=True)
 
     # Section 4
     sec4_title = models.CharField(max_length=255, blank=True, null=True)
     sec4_content = models.TextField(blank=True, null=True)
     sec4_lang = models.TextField(blank=True, null=True)
     sec4_lang_title = models.CharField(max_length=100, blank=True, null=True)
-    sec4_image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
+    sec4_image = CloudinaryField('blog_media', resource_type='auto', blank=True, null=True)
 
     # Section 5
     sec5_title = models.CharField(max_length=255, blank=True, null=True)
     sec5_content = models.TextField(blank=True, null=True)
     sec5_lang = models.TextField(blank=True, null=True)
     sec5_lang_title = models.CharField(max_length=100, blank=True, null=True)
-    sec5_image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
+    sec5_image = CloudinaryField('blog_media', resource_type='auto', blank=True, null=True)
 
-    # --- Reference Links (New) ---
-    link1_text = models.CharField(max_length=200, blank=True, null=True)  
-    link1_url = models.URLField(blank=True, null=True)                   
+    # --- Reference Links ---
+    link1_text = models.CharField(max_length=200, blank=True, null=True)
+    link1_url = models.URLField(blank=True, null=True)
 
     link2_text = models.CharField(max_length=200, blank=True, null=True)
     link2_url = models.URLField(blank=True, null=True)
@@ -60,7 +62,7 @@ class BlogPosts(models.Model):
     conclusion_title = models.CharField(max_length=255, blank=True, null=True)
     conclusion_content = models.TextField(blank=True, null=True)
     linkconclusion_text = models.CharField(max_length=200, blank=True, null=True)
-    linkconclusion_url = models.CharField(blank=True, null=True)
+    linkconclusion_url = models.CharField(max_length=500, blank=True, null=True)
 
     # Stats
     views = models.PositiveIntegerField(default=0)

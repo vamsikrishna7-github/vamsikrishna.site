@@ -2,7 +2,7 @@ from django.apps import apps
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from blog.models import NewsletterSubscriber
-
+import datetime
 
 #blog and portfolio visitor count
 def increment_visitor_count():
@@ -96,3 +96,36 @@ def auto_email_new_BlogPost(blog_post):
             })
         )
     return "Emails sent"
+
+
+#auto email to product buyer
+def send_template_purchase_email(buyer_email, buyer_name, product_title, download_link):
+    buyer_html = render_to_string("email/download_email.html", {
+        "buyer_name": buyer_name,
+        "product_title": product_title,
+        "download_link": download_link,
+        "now": datetime.datetime.now()
+    })
+    send_mail(
+        f"Your {product_title} is ready for download!",
+        f"Thank you for purchasing {product_title}!",
+        "contact@vamsikrishna.site",
+        [buyer_email],
+        fail_silently=False,
+        html_message=buyer_html,
+    )
+
+def send_payment_failed_email(buyer_email, buyer_name, product_title):
+    buyer_html = render_to_string("email/payment_failed.html", {
+        "buyer_name": buyer_name,
+        "product_title": product_title,
+        "now": datetime.datetime.now()
+    })
+    send_mail(
+        f"Action needed: Payment failed for {product_title}",
+        f"We couldn't process your payment for {product_title}.",
+        "contact@vamsikrishna.site",
+        [buyer_email],
+        fail_silently=False,
+        html_message=buyer_html,
+    )

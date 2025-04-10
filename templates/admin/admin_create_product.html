@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4 mb-3">
+    <h2 class="text-white"><span class="text-primary">/</span>Create Template Products</h2>
+    <form method="POST" enctype="multipart/form-data" class="text-white">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button class="btn btn-primary mt-2" type="submit">Create Product</button>
+    </form>
+</div>
+
+<style>
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 10px;
+        vertical-align: top;
+    }
+    input, textarea, select {
+        width: 100%;
+        padding: 5px;
+        background-color: transparent !important;
+        color: white !important;
+    }
+
+    input:focus, textarea:focus, select:focus {
+        outline: none !important;
+        shadow: none !important;
+    }
+
+</style>
+
+{% endblock %}
+

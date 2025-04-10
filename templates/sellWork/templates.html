@@ -1,0 +1,311 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vamsi Krishna | Templates</title>
+    <link rel="icon" type="image/png" href="{% static 'img/urlicon.webp' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+      .modal-content {
+        background-color: #282c33 !important;
+        color: white; 
+      }
+      ::placeholder {
+        color: #6c757d !important;
+        opacity: 1 !important;
+      }
+      input {
+        border: 1px solid #6c757d !important;
+        border-radius: 0 !important;
+      }
+      .bg-success-dark {
+        background-color: rgba(25, 135, 84, 0.2);
+      }
+      .btn-close-white {
+        filter: invert(1) grayscale(100%) brightness(200%);
+      }
+      .custom-buttons:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body class="position-relative container">
+
+        <!-- navbar division -->
+        <div class="container">
+            <nav class="navbar navbar-expand-sm fixed-top">
+              <div class="container">
+                <a class="navbar-brand text-white" href="#"><i class="bi bi-code-square"></i> VamsiKrishna</a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="bi bi-menu-button-fill text-white fs-1"></i>
+              </button>        
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav ms-auto">
+                    <a class="nav-link" aria-current="page" name="home" href="{% url 'home' %}"><span class="hilate-text">#</span>home</a>
+                    <a class="nav-link" name="projects" href="{% url 'home' %}"><span class="hilate-text">#</span>projects</a>
+                    <a class="nav-link" name="about" href="{% url 'home' %}"><span class="hilate-text">#</span>about</a>
+                    <a class="nav-link" name="services" href="{% url 'home' %}"><span class="hilate-text">#</span>services</a>
+                    <a class="nav-link" name="contact" href="{% url 'home' %}"><span class="hilate-text">#</span>contact</a>
+                    <a class="nav-link active" name="blog" href="{% url 'templates' %}"><span class="hilate-text">#</span>templates</a>
+                    <a class="nav-link" name="blog" href="https://blog.vamsikrishna.site/"><span class="hilate-text">#</span>blog</a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+        </div>
+          <br/>
+        
+          <!-- templates_section -->
+          <section id="templates">
+            <div class="my-3 mt-5">
+              <div class="d-flex text-white mb-3">
+                <h3><span class="hilate-text">/</span>Templates</h3>
+              </div>
+              <div class="container my-md-4 my-sm-2">
+                <div class="row g-4"> 
+                  
+                    {% for product in templateProducts %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-auto d-flex flex-column">
+                        <img src="{{ product.image_video.url }}" class="card-img-top" alt="Salon Template Image">
+                        <div class="card-header passage-text">{{product.tech_stack}}</div>
+                        <div class="card-body d-flex flex-column flex-grow-1">
+                            <div class="card-title">{{product.title}}</div>
+                            <p class="card-text passage-text flex-grow-1">
+                              {{product.description}}
+                            </p>
+                            <div class="mb-2">
+                            <a target="_blank" href="{{ product.preview_url }}" class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2" type="button">
+                                Preview <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Icon"/>
+                            </a>
+                            <button
+                              type="button"
+                              class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2"
+                              data-bs-toggle="modal"
+                              data-bs-target="#buyTemplateModal"
+                              data-product-id="{{ product.id }}">
+                              💰 Buy Template
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                        <p colspan="10" class="text-center">No Products found</p>
+                    {% endfor %}
+          
+                </div> 
+              </div> 
+            </div>
+          </section>
+
+          <!-- Buy Template Modal -->
+          <div class="modal fade" id="buyTemplateModal" tabindex="-1" aria-labelledby="buyTemplateModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form method="post" action="{% url 'buy_templates' %}">
+                  {% csrf_token %}
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="buyTemplateModalLabel">Buy Template</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="hidden" name="product_id" id="modalProductId">
+
+                    <div class="mb-3">
+                      <label for="buyerName" class="form-label">Name</label>
+                      <input type="text" class="form-control bg-transparent text-white" id="buyerName" name="buyer_name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="buyerEmail" class="form-label">Email</label>
+                      <input type="email" class="form-control bg-transparent text-white" id="buyerEmail" name="buyer_email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="buyerPhone" class="form-label">Phone</label>
+                      <input type="tel" class="form-control bg-transparent text-white" id="buyerPhone" name="buyer_phone" placeholder="Enter your phone number" required>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2"><i class="bi bi-credit-card me-2"></i>Proceed to Payment</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="razorpayFailedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Payment failed!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href ='{% url 'templates' %}';"></button>
+      </div>
+      <div class="modal-body">
+        <p>Payment was cancelled or failed. Please try again.</p>
+        <p>If you have any issues, please contact support.</p>
+        <p>Thank you for your understanding!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.location.href ='{% url 'templates' %}';">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Success Modal -->
+<div class="modal fade" id="razorpaySuccessModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-secondary">
+        <h1 class="modal-title fs-5 text-success">
+          <i class="bi bi-check-circle-fill me-2"></i>Payment Successful!
+        </h1>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href ='{% url 'templates' %}';"></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-success bg-success-dark border-success text-white">
+          <i class="bi bi-check-lg me-2"></i>Your transaction was completed successfully. Thank you for your purchase!
+        </div>
+
+        <div class="download-instructions mb-4">
+          <h5 class="mb-3">
+            <span class="hilate-text">//</span> Download Access
+          </h5>
+          
+          <div class="card bg-dark border-secondary mb-3">
+            <div class="card-body">
+              <p class="mb-3">
+                <i class="bi bi-envelope-check me-2 text-primary"></i>
+                We've sent the download link to: <strong id="success_buyer_email"></strong>
+              </p>
+              
+              <div class="alert alert-warning bg-dark border-warning">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                Can't find the email? Please check your:
+                <ul class="mt-2 mb-0">
+                  <li>Inbox (including promotions tab)</li>
+                  <li>Spam/Junk folder</li>
+                  <li>Trash folder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <a id="template_source_url" href="" 
+              class="btn btn-primary rounded-1 custom-buttons py-2"
+            >
+              <i class="bi bi-download me-2"></i>Download Now
+            </a>
+            <a href="mailto:contact@vamsikrishna.site" 
+              class="btn btn-outline-secondary rounded-1 py-2"
+            >
+              <i class="bi bi-envelope me-2"></i>Need Help?
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-secondary">
+        <button type="button" class="btn btn-outline-light rounded-1" data-bs-dismiss="modal" onclick="window.location.href ='{% url 'templates' %}';">
+          Continue Browsing
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  const buyTemplateModal = document.getElementById('buyTemplateModal');
+  buyTemplateModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+    const productId = button.getAttribute('data-product-id');
+
+    // Set the product ID in the hidden input field
+    const input = buyTemplateModal.querySelector('#modalProductId');
+    input.value = productId;
+  });
+
+  function launchRazorpay() {
+    const templateId = "{{ template_id }}";
+    const options = {
+      key: "{{ razorpay_key_id }}",
+      amount: "{{ amount }}",
+      currency: "INR",
+      name: "{{ template_title }}",
+      description: "{{ template_description }}",
+      order_id: "{{ order_id }}",
+      prefill: {
+        name: "{{ buyer_name }}",
+        email: "{{ buyer_email }}",
+        contact: "{{ buyer_phone }}"
+      },      
+      handler: function (response) {
+        const fullResponse = {
+          ...response,
+          template_id: templateId
+        };
+        fetch("/payment-success/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": "{{ csrf_token }}",
+          },
+          body: JSON.stringify(fullResponse),
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            const templateSourceUrl = document.getElementById('template_source_url');
+            templateSourceUrl.href = data.template_source + "?download=true";
+            templateSourceUrl.target = "_blank";
+            const successBuyerEmail = document.getElementById('success_buyer_email');
+            successBuyerEmail.textContent = data.buyer_email;
+            const modal = new bootstrap.Modal(document.getElementById('razorpaySuccessModal'));
+            modal.show();
+          } else {
+            const modal = new bootstrap.Modal(document.getElementById('razorpayFailedModal'));
+            modal.show();
+          }
+        });
+      },
+      modal: {
+        ondismiss: function () {
+          const modal = new bootstrap.Modal(document.getElementById('razorpayFailedModal'));
+          modal.show();
+        }
+      },
+      theme: {
+        color: "#3399cc",
+      }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();
+  }
+
+  // Auto-trigger Razorpay if pay is True
+  document.addEventListener("DOMContentLoaded", function () {
+    const shouldPay = {{ pay|yesno:"true,false" }};
+    if (shouldPay) {
+      launchRazorpay();
+    }
+  });
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Template Purchase - Download Now</title>
+    <style>
+      /* Bootstrap-inspired styles (inlined for email compatibility) */
+      body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        color: #212529;
+      }
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05);
+        overflow: hidden;
+      }
+      .btn {
+        display: inline-block;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        background-color: #0d6efd;
+        border: 1px solid transparent;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+        color: white !important;
+      }
+      .btn:hover {
+        background-color: #0b5ed7;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-muted {
+        color: #6c757d !important;
+      }
+      .py-3 {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+      }
+      .px-4 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+      }
+      .my-4 {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .mb-4 {
+        margin-bottom: 1.5rem !important;
+      }
+      .footer {
+        background-color: #f1f5f9;
+        font-size: 0.875rem;
+      }
+      .link-primary {
+        color: #0d6efd;
+        text-decoration: none;
+      }
+      .link-primary:hover {
+        text-decoration: underline;
+      }
+      .fs-5 {
+        font-size: 1.25rem;
+      }
+      .fs-6 {
+        font-size: 1rem;
+      }
+      .fs-7 {
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div style="padding: 2rem;">
+        <h2 style="color: #1a1a1a; margin-bottom: 1.25rem;">Hi {{ buyer_name }},</h2>
+        <p class="fs-5" style="color: #495057; margin-bottom: 1rem;">
+          Thank you for purchasing <strong style="color: #0a58ca;">{{ product_title }}</strong> 🎉
+        </p>
+        <p class="fs-6" style="color: #495057; margin-bottom: 1.5rem;">
+          Your template is now ready for download. Please use the button below to get instant access to your files.
+        </p>
+        
+        <div class="text-center my-4">
+          <a href="{{ download_link }}" class="btn">
+            <span style="margin-right: 0.5rem;">⬇️</span> Download Now
+          </a>
+        </div>
+        
+        <div class="mb-4" style="border-top: 1px solid #e9ecef; padding-top: 1rem;">
+          <p class="fs-7 text-muted">
+            <strong>Need help?</strong> If you have any questions or need further assistance, 
+            simply reply to this email and we'll be happy to help.
+          </p>
+        </div>
+        
+        <p style="margin-top: 2rem; color: #495057;">
+          Best regards,<br>
+          <strong style="color: #212529;">Vamsi Krishna</strong>
+        </p>
+      </div>
+      
+      <div class="footer text-center py-3 px-4">
+        <div style="margin-bottom: 0.75rem;">
+          <a href="https://www.vamsikrishna.site/" class="link-primary" target="_blank">💻 Portfolio</a> | 
+          <a href="https://www.blog.vamsikrishna.site/" class="link-primary" target="_blank">📝 Blog</a> | 
+          <a href="mailto:contact@vamsikrishna.site" class="link-primary">📧 Contact</a>
+        </div>
+        <div class="text-muted fs-7">
+          © {{ now|date:"Y" }} Vamsi Krishna. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

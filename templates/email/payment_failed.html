@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Failed - Please Try Again</title>
+    <style>
+        a.button {
+            background-color: #dc3545;
+            color: #ffffff !important;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        a.button:hover {
+            background-color: #c82333;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+    </style>
+</head>
+<body>
+    <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; background: white; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.05); margin: 40px auto; overflow: hidden;">
+        <tr>
+            <td style="padding: 30px;">
+                <h2 style="color: #333; margin-top: 0;">Hi {{ buyer_name }},</h2>
+                <p style="font-size: 16px; color: #555; line-height: 1.5;">
+                    We couldn't process your payment for <strong style="color: #dc3545;">{{ product_title }}</strong>.
+                </p>
+                <p style="font-size: 16px; color: #555; line-height: 1.5;">
+                    Your template is reserved for you - simply complete your payment to get immediate access.
+                </p>
+                <p style="text-align: center; margin: 30px 0;">
+                    <a href="https://www.vamsikrishna.site/templates/" class="button">🔄 Complete Your Purchase</a>
+                </p>
+                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 6px; margin: 20px 0;">
+                    <p style="font-size: 14px; color: #6c757d; margin: 0;">
+                        <strong>Need help?</strong> If this was unexpected, please reply to this email or 
+                        <a href="mailto:contact@vamsikrishna.site" style="color: #007bff;">contact support</a>.
+                    </p>
+                </div>
+                <p style="margin-top: 30px; font-size: 14px; color: #555;">
+                    Best regards,<br>
+                    <strong>Vamsi Krishna</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="footer" style="background-color: #f1f1f1; padding: 20px; text-align: center; font-size: 13px; color: #777; line-height: 1.5;">
+                💻 <a href="https://www.vamsikrishna.site/" target="_blank">Portfolio</a> |
+                📝 <a href="https://www.blog.vamsikrishna.site/" target="_blank">Blog</a><br>
+                📧 <a href="mailto:contact@vamsikrishna.site">contact@vamsikrishna.site</a>
+                <br><br>
+                © {{ now|date:"Y" }} Vamsi Krishna. All rights reserved.
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

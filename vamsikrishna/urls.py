@@ -15,6 +15,17 @@ urlpatterns = [
     path('delete-message/<int:msg_id>/', views.delete_message, name='delete_message'),
     path("logout/", views.admin_logout, name="logout"),
 
+
+    #templates
+    path("templates/", views.templates, name="templates"),
+    path('buy-templates/', views.buy_template_view, name='buy_templates'),
+    path('payment-success/', views.payment_success, name='payment_success'),
+    path('payment-failed/', views.payment_failed, name='payment_failed'),
+
+    path('create_product/', views.create_product, name='create_product'), #create product
+    path('edit_product/<int:id>/', views.edit_product, name='edit_product'), #edit product
+    path('delete_product/<int:id>/', views.delete_product, name='delete_product'), # delete product
+
     # #blog_urls
     # path('blog/', bloghome, name='blog'),
     # path('unsubscribe/', blog_unsubscribe, name='unsubscribe'),

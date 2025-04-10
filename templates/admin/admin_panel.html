@@ -141,10 +141,120 @@
       </div>
     </div>
 
+    <div class="mt-5 mx-2" id="blog">
+        <h4 class="text-white"><span class="text-primary">/</span>All Template Products</h4>
+        <div class="table-responsive mb-5">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Slug</th>
+                        <th>Image_video</th>
+                        <th>Title</th>
+                        <th>Tech_stack</th>
+                        <th>Description</th>
+                        <th>Preview_url</th>
+                        <th>Price</th>
+                        <th>source</th>
+                        <th>Is_active</th>
+                        <th>Created_at</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in  templateProducts %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="text-white"><strong>{{product.slug}}</strong></td>
+                        <td>
+                            {% if product.image_video %}
+                                {% if product.is_video %}
+                                    <video width="80" height="50" controls style="border-radius: 5px; object-fit: cover;">
+                                        <source src="{{ product.image_video.url }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                {% else %}
+                                    <img src="{{ product.image_video.url }}" alt="Blog Image" 
+                                        style="width: 80px; height: 50px; border-radius: 5px; object-fit: cover;">
+                                {% endif %}
+                                {% else %}
+                                <small>No media</small>
+                            {% endif %}
+                        </td>
+                        <td>{{product.title|truncatechars:100}}</td>
+                        <td>{{product.tech_stack|truncatechars:100}}</td>
+                        <td>{{product.description|truncatechars:100}}</td>
+                        <td>{{product.preview_url|truncatechars:100}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.source|truncatechars:100}}</td>
+                        <td>{{product.is_active}}</td>
+                        <td>{{product.created_at}}</td>
+                        <td>
+                            <a class="btn btn-primary mb-2" href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a class="btn btn-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="10" class="text-center">No Products found</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <style>
+        td{
+            background-color: transparent !important;
+            color: #ababab !important;
+        }
+    </style>
 
-
-
-
+    <div class="mt-5 mx-2" id="blog">
+        <h4 class="text-white"><span class="text-primary">/</span>All Template Purchases</h4>
+        <div class="table-responsive mb-5">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>template</th>
+                        <th>buyer_name</th>
+                        <th>buyer_email</th>
+                        <th>buyer_phone</th>
+                        <th>razorpay_order_id</th>
+                        <th>razorpay_payment_id</th>
+                        <th>razorpay_signature</th>
+                        <th>amount_paid</th>
+                        <th>currency</th>
+                        <th>is_verified</th>
+                        <th>purchased_at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for trans in  templatePurchase %}
+                    <tr {% if trans.is_verified %} class="bg-success" {% endif %}>
+                        <td>{{ forloop.counter }}</td>
+                        <td class="text-white"><strong>{{trans.template}}</strong></td>
+                        <td>{{trans.buyer_name}}</td>
+                        <td>{{trans.buyer_email}}</td>
+                        <td>{{trans.buyer_phone}}</td>
+                        <td>{{trans.razorpay_order_id}}</td>
+                        <td>{{trans.razorpay_payment_id}}</td>
+                        <td>{{trans.razorpay_signature}}</td>
+                        <td>{{trans.amount_paid}}</td>
+                        <td>{{trans.currency}}</td>
+                        <td>{{trans.is_verified}}</td>
+                        <td>{{trans.purchased_at}}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="12" class="text-center">No Transactions found</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <script>
         // loading Animation

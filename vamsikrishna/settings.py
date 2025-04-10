@@ -31,6 +31,8 @@ ALLOWED_HOSTS = [
     "www.blog.vamsikrishna.site",
     "vamsikrishna-site.onrender.com",  # Render backend
     "vamsi-blog.vercel.app",  # Vercel frontend
+    "127.0.0.1",
+    "localhost:8000",
 ]
 
 # ✅ CORS Settings (Fix CORS Issues)
@@ -40,6 +42,9 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.blog.vamsikrishna.site",
     "https://vamsikrishna.site",
     "https://www.vamsikrishna.site",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+    "http://localhost:8000",
 ]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
@@ -155,3 +160,9 @@ RECAPTCHA_REQUIRED = True
 
 # ✅ Optimized Static Files Storage
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
+
+
+#Razerpay
+RAZORPAY_KEY_ID = 'rzp_live_JYd4C2kFByLggN'
+RAZORPAY_KEY_SECRET = 'ShybyuTubacF63AhJfvUGSV3'

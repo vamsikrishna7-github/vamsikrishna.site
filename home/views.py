@@ -15,7 +15,6 @@ import json
 from django.http import JsonResponse
 from requests.exceptions import RequestException
 
-client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
 
 @csrf_protect
 def homepage(request):
@@ -92,6 +91,7 @@ def templates(request):
     templateProducts = TemplateProducts.objects.all().order_by("-created_at")
     return render(request, "sellWork/templates.html", {"templateProducts": templateProducts, 'pay': False})
 
+client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
 
 def buy_template_view(request):
     templateProducts = TemplateProducts.objects.all().order_by("-created_at")

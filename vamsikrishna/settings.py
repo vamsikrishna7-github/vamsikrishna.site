@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security Settings
 SECRET_KEY = 'django-insecure-#6p#pz(%pk68(3lg1+^hh90&ro8x*eazi7upof5n@!4v)ii0(t'
-DEBUG = True  # Keep False in production
+DEBUG = False  # Keep False in production
 
 ALLOWED_HOSTS = [
     "vamsikrishna.site",

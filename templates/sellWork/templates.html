@@ -70,6 +70,7 @@
                 <div class="row g-4"> 
                   
                     {% for product in templateProducts %}
+                    {% if product.is_active %}
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="card h-auto d-flex flex-column">
                         <img src="{{ product.image_video.url }}" class="card-img-top" alt="Salon Template Image">
@@ -95,6 +96,7 @@
                         </div>
                         </div>
                     </div>
+                    {% endif %}
                     {% empty %}
                         <p colspan="10" class="text-center">No Products found</p>
                     {% endfor %}
@@ -124,12 +126,12 @@
 
                     <div class="mb-3">
                       <label for="buyerEmail" class="form-label">Email</label>
-                      <input type="email" class="form-control bg-transparent text-white" id="buyerEmail" name="buyer_email" placeholder="Enter your email" required>
+                      <input type="email" class="form-control bg-transparent text-white" id="buyerEmail" name="buyer_email" placeholder="Enter your email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required>
                     </div>
 
                     <div class="mb-3">
                       <label for="buyerPhone" class="form-label">Phone</label>
-                      <input type="tel" class="form-control bg-transparent text-white" id="buyerPhone" name="buyer_phone" placeholder="Enter your phone number" required>
+                      <input type="tel" class="form-control bg-transparent text-white" id="buyerPhone" name="buyer_phone" placeholder="Enter your phone number" pattern="^\+?[1-9]\d{1,14}$" required>
                     </div>
                   </div>
                   <div class="modal-footer">

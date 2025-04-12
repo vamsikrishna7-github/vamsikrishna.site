@@ -5,9 +5,11 @@
     <h2 class="text-white"><span class="text-primary">/</span>Create Template Products</h2>
     <form method="POST" enctype="multipart/form-data" class="text-white">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
+        <div class="table-responsive">
+            <table>
+                {{ form.as_table }}
+            </table>
+        </div>
         <button class="btn btn-primary mt-2" type="submit">Create Product</button>
     </form>
 </div>

@@ -5,32 +5,34 @@
         <h2 class="text-white"><span class="text-primary">/</span>Edit Blog Post</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <table class="table bg-transparent text-white">
-                <thead class="bg-transparent text-white">
-                    <tr>
-                        <th class="bg-transparent text-white">Field</th>
-                        <th class="bg-transparent text-white">Value</th>
-                    </tr>
-                </thead>
-                <tbody class="text-white">
-                    {% for field in form %}
-                    <tr class="bg-transparent">
-                        <td class="bg-transparent text-white">
-                            <label for="{{ field.id_for_label }}" class="text-white">{{ field.label }}</label>
-                        </td>
-                        <td class="bg-transparent text-white">
-                            {{ field }}
-                            {% if field.help_text %}
-                            <small class="form-text text-muted">{{ field.help_text }}</small>
-                            {% endif %}
-                            {% for error in field.errors %}
-                            <div class="alert alert-danger">{{ error }}</div>
-                            {% endfor %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table bg-transparent text-white">
+                    <thead class="bg-transparent text-white">
+                        <tr>
+                            <th class="bg-transparent text-white">Field</th>
+                            <th class="bg-transparent text-white">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-white">
+                        {% for field in form %}
+                        <tr class="bg-transparent">
+                            <td class="bg-transparent text-white">
+                                <label for="{{ field.id_for_label }}" class="text-white">{{ field.label }}</label>
+                            </td>
+                            <td class="bg-transparent text-white">
+                                {{ field }}
+                                {% if field.help_text %}
+                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                <div class="alert alert-danger">{{ error }}</div>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
             <button type="submit" class="btn btn-primary">Save Post</button>
         </form>
     </div>

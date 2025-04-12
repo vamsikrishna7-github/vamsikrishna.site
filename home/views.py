@@ -67,13 +67,22 @@ def admin_panel(request):
     subscribed_users = NewsletterSubscriber.objects.all().order_by("-subscribed_at")
     templateProducts = TemplateProducts.objects.all().order_by("-created_at")
     templatePurchase = TemplatePurchase.objects.all().order_by("-purchased_at")
+    
+    total_amount = sum(purchase.amount_paid for purchase in templatePurchase if purchase.is_verified)
+    
     for product in templateProducts:
         if product.image_video:
             file_extension = product.image_video.url.split('.')[-1].lower()
             product.is_video = file_extension in ["mp4", "webm", "ogg"]
         else:
             product.is_video = False
-    return render(request, "admin/admin_panel.html", {"messages": messages,  "subscribers":subscribed_users, "templateProducts": templateProducts, "templatePurchase": templatePurchase})
+    return render(request, "admin/admin_panel.html", {
+        "messages": messages, 
+        "subscribers": subscribed_users, 
+        "templateProducts": templateProducts, 
+        "templatePurchase": templatePurchase,
+        "total_amount": total_amount
+    })
 
 @login_required(login_url='/admin/')
 def admin_logout(request):

@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security Settings
 SECRET_KEY = 'django-insecure-#6p#pz(%pk68(3lg1+^hh90&ro8x*eazi7upof5n@!4v)ii0(t'
-DEBUG = False  # Keep False in production
+DEBUG = False  # Set to True for development
 
 ALLOWED_HOSTS = [
     "vamsikrishna.site",
@@ -134,6 +134,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 MEDIA_URL = "https://res.cloudinary.com/djzsfnsjj/"
 
+# Development static files serving
+if DEBUG:
+    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+else:
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    WHITENOISE_MANIFEST_STRICT = False
+    WHITENOISE_ALLOW_ALL_ORIGINS = True
+
 # Admin Panel Login
 LOGIN_URL = "/admin/"
 
@@ -157,11 +165,6 @@ else:
     RECAPTCHA_PRIVATE_KEY = "6Lds4e0qAAAAAEU5awIdxjQz1bPVZ80RBfe1PZnD"
 
 RECAPTCHA_REQUIRED = True
-
-# ✅ Optimized Static Files Storage
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-
-
 
 #Razerpay
 RAZORPAY_KEY_ID = 'rzp_live_JYd4C2kFByLggN'

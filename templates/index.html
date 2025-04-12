@@ -4,11 +4,73 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vamsi Krishna</title>
+    <title>Vamsi Krishna | Full-Stack Developer & Web Designer</title>
+    <meta name="description" content="Professional Full-Stack Developer specializing in Django, React, and modern web technologies. Offering custom web development, API development, and responsive design services.">
+    <meta name="keywords" content="Full-Stack Developer, Django Developer, Web Developer, Python Developer, React Developer, Portfolio, Web Design, API Development">
+    <meta name="author" content="Vamsi Krishna">
+    <meta property="og:title" content="Vamsi Krishna | Full-Stack Developer & Web Designer">
+    <meta property="og:description" content="Professional Full-Stack Developer specializing in Django, React, and modern web technologies. Offering custom web development, API development, and responsive design services.">
+    <meta property="og:image" content="{% static 'img/urlicon.webp' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <link rel="icon" type="image/png" href="{% static 'img/urlicon.webp' %}">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://www.google.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/ai.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+      /* Navbar link hover effects */
+      .navbar-nav .nav-link {
+        position: relative;
+        transition: all 0.3s ease !important;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #4c6bc8 !important;
+        transform: translateY(-2px) !important;
+      }
+      .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #4c6bc8;
+        transition: width 0.3s ease !important;
+      }
+      .navbar-nav .nav-link:hover::after {
+        width: 100% !important;
+      }
+      /* Footer link hover effects */
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vamsi Krishna",
+      "jobTitle": "Full-Stack Developer",
+      "url": "{{ request.build_absolute_uri }}",
+      "sameAs": [
+        "https://github.com/vamsikrishna7-github",
+        "https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/",
+        "https://blog.vamsikrishna.site/"
+      ],
+      "skills": [
+        "Django",
+        "Python",
+        "React",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "MySQL",
+        "SQLite"
+      ]
+    }
+    </script>
   </head>
   <body class="position-relative">
 
@@ -24,7 +86,7 @@
 
     <!-- navbar division -->
     <div class="container">
-      <nav class="navbar navbar-expand-sm fixed-top">
+      <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
           <a class="navbar-brand text-white" href="#"><i class="bi bi-code-square"></i> VamsiKrishna</a>
           <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,13 +94,81 @@
         </button>        
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
-              <a class="nav-link active" aria-current="page" name="home" href="#home"><span class="hilate-text">#</span>home</a>
-              <a class="nav-link " name="projects" href="#projects"><span class="hilate-text">#</span>projects</a>
-              <a class="nav-link" name="about" href="#about"><span class="hilate-text">#</span>about</a>
-              <a class="nav-link" name="services" href="#services"><span class="hilate-text">#</span>services</a>
-              <a class="nav-link" name="contact" href="#contact"><span class="hilate-text">#</span>contact</a>
-              <a class="nav-link" name="blog" href="{% url 'templates' %}"><span class="hilate-text">#</span>templates</a>
-              <a class="nav-link" name="blog" href="https://blog.vamsikrishna.site/"><span class="hilate-text">#</span>blog</a>
+              <a class="nav-link active" aria-current="page" name="home" href="#home">
+                <i class="bi bi-house-door"></i> <span class="hilate-text">#</span>home
+              </a>
+              <a class="nav-link" name="projects" href="#projects">
+                <i class="bi bi-code-square"></i> <span class="hilate-text">#</span>projects
+              </a>
+              <a class="nav-link" name="about" href="#about">
+                <i class="bi bi-person"></i> <span class="hilate-text">#</span>about
+              </a>
+              <a class="nav-link" name="services" href="#services">
+                <i class="bi bi-gear"></i> <span class="hilate-text">#</span>services
+              </a>
+              <a class="nav-link" name="contact" href="#contact">
+                <i class="bi bi-envelope"></i> <span class="hilate-text">#</span>contact
+              </a>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-layers"></i> <span class="hilate-text">#</span>templates
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="{% url 'templates' %}">
+                    <i class="bi bi-grid"></i> View Templates
+                  </a></li>
+                  <li><a class="dropdown-item" href="{% url 'templates' %}?category=premium">
+                    <i class="bi bi-star"></i> Premium Templates
+                  </a></li>
+                  <li><a class="dropdown-item" href="{% url 'templates' %}?category=free">
+                    <i class="bi bi-gift"></i> Free Templates
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#contact">
+                    <i class="bi bi-headset"></i> Template Support
+                  </a></li>
+                </ul>
+              </div>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-newspaper"></i> <span class="hilate-text">#</span>blog
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                    <i class="bi bi-house"></i> Home
+                  </a></li>
+                  <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                    <i class="bi bi-code-slash"></i> Tech Articles
+                  </a></li>
+                  <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                    <i class="bi bi-book"></i> Tutorials
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                    <i class="bi bi-info-circle"></i> About Blog
+                  </a></li>
+                </ul>
+              </div>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-question-circle"></i> <span class="hilate-text">#</span>help
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="#contact">
+                    <i class="bi bi-question-lg"></i> FAQ
+                  </a></li>
+                  <li><a class="dropdown-item" href="#contact">
+                    <i class="bi bi-credit-card"></i> Payment Help
+                  </a></li>
+                  <li><a class="dropdown-item" href="#contact">
+                    <i class="bi bi-arrow-return-left"></i> Refund Policy
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#contact">
+                    <i class="bi bi-headset"></i> Contact Support
+                  </a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -113,7 +243,7 @@
               <!-- Project Card 1 -->
               <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/projects/5.png' %}" class="card-img-top" alt="Project Image">
+                  <img src="{% static 'img/projects/5.webp' %}" class="card-img-top" alt="Project Image">
                   <div class="card-header passage-text">React, Next.js, Django REST Framework (DRF), Django Templates (Admin)</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Vamsi-Blog: SEO-Friendly Next.js React Tech Blog with Django DRF</div>
@@ -135,7 +265,7 @@
               <!-- Project Card 2 -->
               <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/projects/2.png' %}" class="card-img-top" alt="Project Image">
+                  <img src="{% static 'img/projects/2.webp' %}" class="card-img-top" alt="Project Image">
                   <div class="card-header passage-text">reCAPTCHA send_mail EmailMessage SQLite Django Python HTML CSS JavaScript Bootstrap</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Dynamic Portfolio with Admin Panel & Auto-Emails</div>
@@ -157,7 +287,7 @@
               <!-- Project Card 3 -->
               <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/projects/1.jpg' %}" class="card-img-top" alt="Project Image">
+                  <img src="{% static 'img/projects/1.webp' %}" class="card-img-top" alt="Project Image">
                   <div class="card-header passage-text">HTML CSS JavaScript Bootstrap Python Django SQLite</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Dynamic Portfolio with Smart Contact System</div>
@@ -182,7 +312,7 @@
               <!-- Project Card 4 -->
               <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/projects/4.jpg' %}" class="card-img-top" alt="Project Image">
+                  <img src="{% static 'img/projects/4.webp' %}" class="card-img-top" alt="Project Image">
                   <div class="card-header passage-text">SQLite Django HTML Python</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Gameon</div>
@@ -204,7 +334,7 @@
               <!-- Project Card 5 -->
               <div class="show-hide-projects col-12 col-md-6 col-lg-4 d-none"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/projects/3.jpg' %}" class="card-img-top" alt="Project Image">
+                  <img src="{% static 'img/projects/3.webp' %}" class="card-img-top" alt="Project Image">
                   <div class="card-header passage-text">Ethereum Solidity Truffle Ganache IPFS (Pinata) Streamlit Docker</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Blockchain Certificate Validation</div>
@@ -487,7 +617,7 @@
               <!-- service Card 1 -->
               <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/services/1.png' %}" class="card-img-top" alt="service Image">
+                  <img src="{% static 'img/services/1.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">Django Python HTML CSS JavaScript Bootstrap MySQL/SQLite</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Full-Stack Web Development</div>
@@ -512,7 +642,7 @@
               <!-- service Card 2 -->
               <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/services/2.png' %}" class="card-img-top" alt="service Image">
+                  <img src="{% static 'img/services/2.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">Django Python Django REST Framework MySQL/SQLite</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Django Backend Web Development</div>
@@ -536,13 +666,13 @@
               <!-- service Card 3 -->
               <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/services/3.png' %}" class="card-img-top" alt="service Image">
+                  <img src="{% static 'img/services/3.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">Django Python HTML CSS JavaScript Bootstrap MySQL/SQLite</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Custom Web Applications Development</div>
                     <p class="card-text passage-text flex-grow-1">
                       I create custom web applications designed to solve specific business problems. 
-                      Whether it’s a dashboard, CRUD app, or data-driven platform, 
+                      Whether it's a dashboard, CRUD app, or data-driven platform, 
                       I can build a solution that fits your unique requirements.
                     </p>
                     <div>
@@ -557,7 +687,7 @@
               <!-- service Card 4 -->
               <div class="col-12 col-md-6 col-lg-4 show-hide"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/services/4.png' %}" class="card-img-top" alt="service Image">
+                  <img src="{% static 'img/services/4.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">HTML CSS JavaScript Bootstrap</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Frontend Development</div>
@@ -580,13 +710,13 @@
               <!-- service Card 5 -->
               <div class="col-12 col-md-6 col-lg-4 show-hide"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/services/5.png' %}" class="card-img-top" alt="service Image">
+                  <img src="{% static 'img/services/5.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">HTML CSS JavaScript Bootstrap Django (for dynamic portfolios)</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Portfolio Website Development</div>
                     <p class="card-text passage-text flex-grow-1">
                       I design and develop professional portfolio websites that showcase your work and help you stand out. 
-                      Whether you’re an individual or a business, I’ll create a visually appealing and functional portfolio to attract clients. 
+                      Whether you're an individual or a business, I'll create a visually appealing and functional portfolio to attract clients. 
                     </p>
                     <div>
                       <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
@@ -603,7 +733,7 @@
               <!-- service Card 6 -->
               <div class="col-12 col-md-6 col-lg-4 show-hide"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src=" {% static 'img/services/6.png' %}" class="card-img-top" alt="service Image">
+                  <img src=" {% static 'img/services/6.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">Django Python HTML CSS JavaScript MySQL/SQLite Git</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Website Maintenance and Support</div>
@@ -623,7 +753,7 @@
               <!-- service Card 7 -->
               <div class="col-12 col-md-6 col-lg-4 show-hide"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/services/7.png' %}" class="card-img-top" alt="service Image">
+                  <img src="{% static 'img/services/7.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">Django REST Framework Python MySQL/SQLite</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">REST API Development</div>
@@ -634,6 +764,29 @@
                     <div>
                       <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Template Sales Card -->
+              <div class="col-12 col-md-6 col-lg-4"> 
+                <div class="card h-auto d-flex flex-column border-primary">
+                  <img src="{% static 'img/templates/01_gymfit-preview.webp' %}" class="card-img-top" alt="Templates Image">
+                  <div class="card-header passage-text">Django, React, Next.js, Bootstrap, HTML, CSS, JavaScript</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Premium Website Templates</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      Get ready-to-use, professionally designed website templates. Perfect for quick deployment and customization. 
+                      <span class="special-offer">Special offer: Buy now and get free support!</span>
+                    </p>
+                    <div class="d-flex flex-column gap-2">
+                      <a href="{% url 'templates' %}" class="btn btn-primary rounded-0 custom-buttons" type="button">
+                        View Templates <i class="bi bi-eye-fill"></i>
+                      </a>
+                      <a href="{% url 'templates' %}" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Buy Now <i class="bi bi-cart-fill"></i>
                       </a>
                     </div>
                   </div>
@@ -652,7 +805,7 @@
         <div class="d-flex flex-column justify-content-center">
             <h4 class="text-white ps-2"><span class="hilate-text">/</span>contact-me</h4><br>
             <p class="passage-text ps-2">
-                I’m always open to new opportunities and collaborations. Feel free to reach out with any questions, ideas, or just to connect. Looking forward to hearing from you!
+                I'm always open to new opportunities and collaborations. Feel free to reach out with any questions, ideas, or just to connect. Looking forward to hearing from you!
             </p>
             <form action="{% url 'home' %}" method="POST">
               {% csrf_token %}
@@ -678,7 +831,7 @@
                 <div class="row p-2">
                     <div class="col">
                         <select name="project_type" class="form-control bg-transparent rounded-0 text-white custom-placeholder border-secondary" required>
-                            <option value="" disabled selected>Project Type</option>
+                            <option value="" disabled selected>Message Type</option>
                             <option value="Full-Stack Web Development">Full-Stack Web Development</option>
                             <option value="Django Backend Web Development">Django Backend Web Development</option>
                             <option value="Custom Web Applications Development">Custom Web Applications Development</option>
@@ -686,6 +839,8 @@
                             <option value="Portfolio Website Development">Portfolio Website Development</option>
                             <option value="Website Maintenance and Support">Website Maintenance and Support</option>
                             <option value="REST API Development">REST API Development</option>
+                            <option value="Premium Website Templates">Premium Website Templates</option>
+                            <option value="Payment Related issues">Payment Related issues</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
@@ -748,35 +903,87 @@
     <button id="scrollToTopBtn" onclick="scrollToTop(this)" title="Go to top">↑</button>
 
     <!-- footer section -->
-    <div class="container">
-    <!-- footer section -->
     <footer class="footer text-white py-4">
-      <div class="container d-flex justify-content-between align-items-center flex-wrap">
-        
-        <!-- Left Side -->
-        <div>
-          <strong>Vamsi Krishna</strong>  
-          <p id="footer-mail" class="mb-1">contact@vamsikrishna.site</p>
-          <p class="mb-0 passage-text">Front-end & Back-end Developer</p>
-        </div>
-        
-        <!-- Right Side (Social Media) -->
-        <div class="text-end">
-          <p class="mb-1">Follow Me:</p>
-          <div class="d-flex gap-2 justify-content-end contact-buttons">
-            <a target="_blank" href="https://github.com/vamsikrishna7-github" target="_blank"><img width="25" height="25" src="https://img.icons8.com/material-outlined/100/FFFFFF/github.png" alt="GitHub"/></a>
-            <a target="_blank" href="https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/" target="_blank"><img width="25" height="25" src="https://img.icons8.com/ios-glyphs/120/FFFFFF/linkedin.png" alt="LinkedIn"/></a>
-            <a href="mailto:contact@vamsikrishna.site" target="_blank"><img width="23" height="23" src="https://img.icons8.com/glyph-neue/128/FFFFFF/gmail.png" alt="Gmail"/></a>
+      <div class="container">
+        <div class="row">
+          <!-- Quick Links -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#home" class="text-decoration-none passage-text">Home</a></li>
+              <li class="mb-2"><a href="#projects" class="text-decoration-none passage-text">Projects</a></li>
+              <li class="mb-2"><a href="#about" class="text-decoration-none passage-text">About</a></li>
+              <li class="mb-2"><a href="#services" class="text-decoration-none passage-text">Services</a></li>
+              <li class="mb-2"><a href="#contact" class="text-decoration-none passage-text">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Templates -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Templates</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="{% url 'templates' %}" class="text-decoration-none passage-text">All Templates</a></li>
+              <li class="mb-2"><a href="{% url 'templates' %}?category=premium" class="text-decoration-none passage-text">Premium Templates</a></li>
+              <li class="mb-2"><a href="{% url 'templates' %}?category=free" class="text-decoration-none passage-text">Free Templates</a></li>
+              <li class="mb-2"><a href="#contact" class="text-decoration-none passage-text">Template Support</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Services</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#services" class="text-decoration-none passage-text">Full-Stack Development</a></li>
+              <li class="mb-2"><a href="#services" class="text-decoration-none passage-text">Django Backend</a></li>
+              <li class="mb-2"><a href="#services" class="text-decoration-none passage-text">Custom Web Apps</a></li>
+              <li class="mb-2"><a href="#services" class="text-decoration-none passage-text">REST API Development</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Contact</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="mailto:contact@vamsikrishna.site" class="text-decoration-none passage-text">
+                  <i class="bi bi-envelope me-2"></i>contact@vamsikrishna.site
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="https://github.com/vamsikrishna7-github" target="_blank" class="text-decoration-none passage-text">
+                  <i class="bi bi-github me-2"></i>GitHub
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/" target="_blank" class="text-decoration-none passage-text">
+                  <i class="bi bi-linkedin me-2"></i>LinkedIn
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="https://blog.vamsikrishna.site/" target="_blank" class="text-decoration-none passage-text">
+                  <i class="bi bi-newspaper me-2"></i>Tech Blog
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-    
+
+        <!-- Copyright and Stats -->
+        <div class="row mt-4">
+          <div class="col-12 text-center">
+            <p class="mb-2 passage-text">
+              <i class="bi bi-eye"></i> Total Views: {{ views }} | 
+              <i class="bi bi-calendar"></i> Last Updated: {% now "F Y" %}
+            </p>
+            <p class="mb-0 passage-text">
+              © {% now "Y" %} Vamsi Krishna. All rights reserved.
+              <a href="#" class="text-decoration-none passage-text ms-2">Privacy Policy</a> |
+              <a href="#" class="text-decoration-none passage-text">Terms of Service</a>
+            </p>
+          </div>
+        </div>
       </div>
-      
-      <!-- Copyright -->
-      <p class="text-center mt-3 mb-0 passage-text"><i class="bi bi-eye"></i> Total Views: {{ views }}</p>
-      <p class="text-center mt-1 mb-0 passage-text">© 2024. Made by Vamsi Krishna</p>
     </footer>
-    </div>
 
      {% comment %} Google reCAPTCHA {% endcomment %}
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>  
@@ -785,12 +992,111 @@
 
     {% comment %} model message script {% endcomment %}
     <script>
+      // Intersection Observer for animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
 
-      const closeModalButton = document.getElementById('closeModalButton');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            if (entry.target.classList.contains('card')) {
+              entry.target.style.transitionDelay = `${entry.target.dataset.delay || '0s'}`;
+            }
+          }
+        });
+      }, observerOptions);
 
-      closeModalButton.addEventListener('click', function() {
-      window.location.href = "https://vamsikrishna.site/#contact"; 
+      // Observe all sections and cards
+      document.querySelectorAll('section').forEach(section => observer.observe(section));
+      document.querySelectorAll('.card').forEach((card, index) => {
+        card.dataset.delay = `${index * 0.1}s`;
+        observer.observe(card);
       });
+
+      // Scroll to top button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.style.display = 'block';
+        } else {
+          scrollToTopBtn.style.display = 'none';
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Loading animation
+      window.addEventListener('load', () => {
+        document.getElementById('loading').style.display = 'none';
+      });
+
+      // Form validation and optimization
+      const form = document.querySelector('form[action="{% url 'home' %}"]');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          const submitButton = form.querySelector('button[type="submit"]');
+          if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+          }
+        });
+      }
+
+      // Lazy loading for images
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      });
+
+      lazyImages.forEach(img => imageObserver.observe(img));
+
+      // View all projects/services toggle
+      function toggleViewAll(element) {
+        const items = document.querySelectorAll('.show-hide, .show-hide-projects');
+        const viewAllText = element.querySelector('img');
+        const isHidden = items[0].classList.contains('d-none');
+        
+        items.forEach(item => {
+          if (isHidden) {
+            item.classList.remove('d-none');
+            viewAllText.src = "{% static 'img/services/hide-all.png' %}";
+          } else {
+            item.classList.add('d-none');
+            viewAllText.src = "{% static 'img/services/view-all.png' %}";
+          }
+        });
+      }
+
+      // Message modal handling
+      const closeModalButton = document.getElementById('closeModalButton');
+      if (closeModalButton) {
+        closeModalButton.addEventListener('click', function() {
+          window.location.href = "https://vamsikrishna.site/#contact";
+        });
+      }
       
       function showMessageModal(message, isSuccess) {
         const messageModalBody = document.getElementById('messageModalBody');

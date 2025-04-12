@@ -471,3 +471,46 @@ select.form-control option {
 #loading {
     z-index: 1000;
   }
+
+@media(min-width: 991px){
+    .navbar-collapse a i {
+        display: none !important;
+    }
+    .navbar-collapse .dropdown-toggle i {
+        display: inline-block !important;
+    }
+    .navbar-collapse .dropdown-menu i {
+        display: inline-block !important;
+    }
+}
+
+/* Special offer animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.special-offer {
+  display: inline-block;
+  animation: pulse 2s infinite;
+  color: #4c6bc8;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(76, 107, 200, 0.3);
+}
+
+.special-offer:hover {
+  animation: none;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+

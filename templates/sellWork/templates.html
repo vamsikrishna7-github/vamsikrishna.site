@@ -4,41 +4,41 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vamsi Krishna | Templates</title>
+    <title>Premium Website Templates | Vamsi Krishna</title>
+    <meta name="description" content="Buy high-quality website templates built with modern technologies. Get responsive, customizable templates for your next project.">
+    <meta name="keywords" content="website templates, web templates, premium templates, responsive templates, django templates, react templates">
+    <meta name="author" content="Vamsi Krishna">
+    <meta property="og:title" content="Premium Website Templates | Vamsi Krishna">
+    <meta property="og:description" content="Buy high-quality website templates built with modern technologies. Get responsive, customizable templates for your next project.">
+    <meta property="og:image" content="{% static 'img/urlicon.webp' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <link rel="icon" type="image/png" href="{% static 'img/urlicon.webp' %}">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://checkout.razorpay.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <style>
-      .modal-content {
-        background-color: #282c33 !important;
-        color: white; 
+    <link rel="stylesheet" href="{% static 'css/templates.css' %}">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Premium Website Templates",
+      "description": "Buy high-quality website templates built with modern technologies",
+      "publisher": {
+        "@type": "Person",
+        "name": "Vamsi Krishna"
       }
-      ::placeholder {
-        color: #6c757d !important;
-        opacity: 1 !important;
-      }
-      input {
-        border: 1px solid #6c757d !important;
-        border-radius: 0 !important;
-      }
-      .bg-success-dark {
-        background-color: rgba(25, 135, 84, 0.2);
-      }
-      .btn-close-white {
-        filter: invert(1) grayscale(100%) brightness(200%);
-      }
-      .custom-buttons:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
-      }
-    </style>
+    }
+    </script>
   </head>
   <body class="position-relative container">
 
         <!-- navbar division -->
         <div class="container">
-            <nav class="navbar navbar-expand-sm fixed-top">
+            <nav class="navbar navbar-expand-lg fixed-top">
               <div class="container">
                 <a class="navbar-brand text-white" href="#"><i class="bi bi-code-square"></i> VamsiKrishna</a>
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,13 +46,81 @@
               </button>        
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav ms-auto">
-                    <a class="nav-link" aria-current="page" name="home" href="{% url 'home' %}"><span class="hilate-text">#</span>home</a>
-                    <a class="nav-link" name="projects" href="{% url 'home' %}"><span class="hilate-text">#</span>projects</a>
-                    <a class="nav-link" name="about" href="{% url 'home' %}"><span class="hilate-text">#</span>about</a>
-                    <a class="nav-link" name="services" href="{% url 'home' %}"><span class="hilate-text">#</span>services</a>
-                    <a class="nav-link" name="contact" href="{% url 'home' %}"><span class="hilate-text">#</span>contact</a>
-                    <a class="nav-link active" name="blog" href="{% url 'templates' %}"><span class="hilate-text">#</span>templates</a>
-                    <a class="nav-link" name="blog" href="https://blog.vamsikrishna.site/"><span class="hilate-text">#</span>blog</a>
+                    <a class="nav-link" aria-current="page" name="home" href="{% url 'home' %}">
+                      <i class="bi bi-house-door"></i> <span class="hilate-text">#</span>home
+                    </a>
+                    <a class="nav-link" name="projects" href="{% url 'home' %}#projects">
+                      <i class="bi bi-code-square"></i> <span class="hilate-text">#</span>projects
+                    </a>
+                    <a class="nav-link" name="about" href="{% url 'home' %}#about">
+                      <i class="bi bi-person"></i> <span class="hilate-text">#</span>about
+                    </a>
+                    <a class="nav-link" name="services" href="{% url 'home' %}#services">
+                      <i class="bi bi-gear"></i> <span class="hilate-text">#</span>services
+                    </a>
+                    <a class="nav-link" name="contact" href="{% url 'home' %}#contact">
+                      <i class="bi bi-envelope"></i> <span class="hilate-text">#</span>contact
+                    </a>
+                    <div class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-layers"></i> <span class="hilate-text">#</span>templates
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="{% url 'templates' %}">
+                          <i class="bi bi-grid"></i> View Templates
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'templates' %}?category=premium">
+                          <i class="bi bi-star"></i> Premium Templates
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'templates' %}?category=free">
+                          <i class="bi bi-gift"></i> Free Templates
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                          <i class="bi bi-headset"></i> Template Support
+                        </a></li>
+                      </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-newspaper"></i> <span class="hilate-text">#</span>blog
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                          <i class="bi bi-house"></i> Home
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                          <i class="bi bi-code-slash"></i> Tech Articles
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                          <i class="bi bi-book"></i> Tutorials
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                          <i class="bi bi-info-circle"></i> About Blog
+                        </a></li>
+                      </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-question-circle"></i> <span class="hilate-text">#</span>help
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                          <i class="bi bi-question-lg"></i> FAQ
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                          <i class="bi bi-credit-card"></i> Payment Help
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                          <i class="bi bi-arrow-return-left"></i> Refund Policy
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                          <i class="bi bi-headset"></i> Contact Support
+                        </a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -64,43 +132,62 @@
           <section id="templates">
             <div class="my-3 mt-5">
               <div class="d-flex text-white mb-3">
-                <h3><span class="hilate-text">/</span>Templates</h3>
+                <h1 class="h3"><span class="hilate-text">/</span>Templates</h1>
               </div>
               <div class="container my-md-4 my-sm-2">
                 <div class="row g-4"> 
-                  
-                    {% for product in templateProducts %}
-                    {% if product.is_active %}
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card h-auto d-flex flex-column">
-                        <img src="{{ product.image_video.url }}" class="card-img-top" alt="Salon Template Image">
-                        <div class="card-header passage-text">{{product.tech_stack}}</div>
-                        <div class="card-body d-flex flex-column flex-grow-1">
-                            <div class="card-title">{{product.title}}</div>
-                            <p class="card-text passage-text flex-grow-1">
-                              {{product.description}}
-                            </p>
-                            <div class="mb-2">
-                            <a target="_blank" href="{{ product.preview_url }}" class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2" type="button">
-                                Preview <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Icon"/>
-                            </a>
-                            <button
-                              type="button"
-                              class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2"
-                              data-bs-toggle="modal"
-                              data-bs-target="#buyTemplateModal"
-                              data-product-id="{{ product.id }}">
-                              💰 Buy Template
-                            </button>
-                            </div>
+                  {% for product in templateProducts %}
+                  {% if product.is_active %}
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto d-flex flex-column" itemscope itemtype="https://schema.org/Product">
+                      <meta itemprop="brand" content="Vamsi Krishna">
+                      <meta itemprop="category" content="Website Template">
+                      <img 
+                        src="{{ product.image_video.url }}" 
+                        class="card-img-top lazy-load" 
+                        alt="{{ product.title }} Template Preview"
+                        loading="lazy"
+                        itemprop="image"
+                        onload="this.classList.add('loaded')"
+                      >
+                      <div class="card-header passage-text">
+                        {% for tech in product.tech_stack.split %}
+                          <span class="tech-badge">{{ tech }}</span>
+                        {% endfor %}
+                      </div>
+                      <div class="card-body d-flex flex-column flex-grow-1">
+                        <h2 class="card-title h5" itemprop="name">{{product.title}}</h2>
+                        <p class="card-text passage-text flex-grow-1" itemprop="description">
+                          {{product.description}}
+                        </p>
+                        <div class="mb-2">
+                          <a 
+                            target="_blank" 
+                            href="{{ product.preview_url }}" 
+                            class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2" 
+                            type="button"
+                            aria-label="Preview {{ product.title }} template"
+                          >
+                            Preview <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Preview Icon"/>
+                          </a>
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2"
+                            data-bs-toggle="modal"
+                            data-bs-target="#buyTemplateModal"
+                            data-product-id="{{ product.id }}"
+                            aria-label="Buy {{ product.title }} template"
+                          >
+                          <i class="bi bi-bag-fill"></i> Buy Template
+                          </button>
                         </div>
-                        </div>
+                      </div>
                     </div>
-                    {% endif %}
-                    {% empty %}
-                        <p colspan="10" class="text-center">No Products found</p>
-                    {% endfor %}
-          
+                  </div>
+                  {% endif %}
+                  {% empty %}
+                    <p colspan="10" class="text-center">No Products found</p>
+                  {% endfor %}
                 </div> 
               </div> 
             </div>
@@ -110,7 +197,7 @@
           <div class="modal fade" id="buyTemplateModal" tabindex="-1" aria-labelledby="buyTemplateModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form method="post" action="{% url 'buy_templates' %}">
+                <form method="post" action="{% url 'buy_templates' %}" itemscope itemtype="https://schema.org/Order">
                   {% csrf_token %}
                   <div class="modal-header">
                     <h5 class="modal-title" id="buyTemplateModalLabel">Buy Template</h5>
@@ -118,24 +205,61 @@
                   </div>
                   <div class="modal-body">
                     <input type="hidden" name="product_id" id="modalProductId">
-
                     <div class="mb-3">
                       <label for="buyerName" class="form-label">Name</label>
-                      <input type="text" class="form-control bg-transparent text-white" id="buyerName" name="buyer_name" placeholder="Enter your name" required>
+                      <input 
+                        type="text" 
+                        class="form-control bg-transparent text-white" 
+                        id="buyerName" 
+                        name="buyer_name" 
+                        placeholder="Enter your name" 
+                        required
+                        itemprop="customer"
+                        autocomplete="name"
+                      >
                     </div>
 
                     <div class="mb-3">
                       <label for="buyerEmail" class="form-label">Email</label>
-                      <input type="email" class="form-control bg-transparent text-white" id="buyerEmail" name="buyer_email" placeholder="Enter your email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required>
+                      <input 
+                        type="email" 
+                        class="form-control bg-transparent text-white" 
+                        id="buyerEmail" 
+                        name="buyer_email" 
+                        placeholder="Enter your email" 
+                        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" 
+                        required
+                        itemprop="email"
+                        autocomplete="email"
+                      >
+                      <div class="form-text text-muted">We'll send your download link to this email</div>
                     </div>
 
                     <div class="mb-3">
                       <label for="buyerPhone" class="form-label">Phone</label>
-                      <input type="tel" class="form-control bg-transparent text-white" id="buyerPhone" name="buyer_phone" placeholder="Enter your phone number" pattern="^\+?[1-9]\d{1,14}$" required>
+                      <input 
+                        type="tel" 
+                        class="form-control bg-transparent text-white" 
+                        id="buyerPhone" 
+                        name="buyer_phone" 
+                        placeholder="Enter your phone number" 
+                        pattern="^\+?[1-9]\d{1,14}$" 
+                        required
+                        itemprop="telephone"
+                        autocomplete="tel"
+                      >
+                      <div class="form-text text-muted">For order updates and support</div>
+                    </div>
+
+                    <div class="alert alert-info bg-dark border-info">
+                      <i class="bi bi-shield-check me-2"></i>
+                      <strong>Secure Payment:</strong> Your payment is processed securely through Razorpay
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2"><i class="bi bi-credit-card me-2"></i>Proceed to Payment</button>
+                    <button type="submit" class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2">
+                      <i class="bi bi-credit-card me-2"></i>Proceed to Payment
+                    </button>
                   </div>
                 </form>
               </div>
@@ -143,21 +267,38 @@
           </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="razorpayFailedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<!--Failed Modal -->
+<div class="modal fade" id="razorpayFailedModal" tabindex="-1" aria-labelledby="failedModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Payment failed!</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href ='{% url 'templates' %}';"></button>
+      <div class="modal-header border-danger">
+        <h1 class="modal-title fs-5 text-danger" id="failedModalLabel">
+          <i class="bi bi-x-circle-fill me-2"></i>Payment Failed
+        </h1>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <p>Payment was cancelled or failed. Please try again.</p>
-        <p>If you have any issues, please contact support.</p>
-        <p>Thank you for your understanding!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.location.href ='{% url 'templates' %}';">Close</button>
+      <div class="modal-body text-center">
+        <div class="payment-failed-icon mb-3">
+          <i class="bi bi-x-circle"></i>
+        </div>
+        <h5 class="text-danger mb-3">Oops! Payment Failed</h5>
+        <div class="alert alert-danger bg-dark border-danger">
+          <p class="mb-2">We couldn't process your payment. This could be due to:</p>
+          <ul class="text-start mb-0">
+            <li>Insufficient funds</li>
+            <li>Network issues</li>
+            <li>Payment gateway timeout</li>
+            <li>Incorrect card details</li>
+          </ul>
+        </div>
+        <div class="d-grid gap-2 mt-4">
+          <button type="button" class="btn btn-primary retry-button" onclick="window.location.href='{% url 'templates' %}'">
+            <i class="bi bi-arrow-clockwise me-2"></i>Try Again
+          </button>
+          <a href="mailto:contact@vamsikrishna.site" class="btn btn-outline-secondary">
+            <i class="bi bi-envelope me-2"></i>Contact Support
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -228,15 +369,53 @@
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-  const buyTemplateModal = document.getElementById('buyTemplateModal');
-  buyTemplateModal.addEventListener('show.bs.modal', function (event) {
-    const button = event.relatedTarget;
-    const productId = button.getAttribute('data-product-id');
+  // Lazy loading implementation
+  document.addEventListener("DOMContentLoaded", function() {
+    const lazyImages = document.querySelectorAll(".lazy-load");
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add("loaded");
+          observer.unobserve(img);
+        }
+      });
+    });
 
-    // Set the product ID in the hidden input field
-    const input = buyTemplateModal.querySelector('#modalProductId');
-    input.value = productId;
+    lazyImages.forEach(img => imageObserver.observe(img));
   });
+
+  // Optimize modal handling
+  const buyTemplateModal = document.getElementById('buyTemplateModal');
+  if (buyTemplateModal) {
+    buyTemplateModal.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget;
+      const productId = button.getAttribute('data-product-id');
+      const input = buyTemplateModal.querySelector('#modalProductId');
+      input.value = productId;
+    });
+  }
+
+  // Form validation and optimization
+  const form = document.querySelector('form[action="{% url 'buy_templates' %}"]');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      const email = form.querySelector('#buyerEmail');
+      const phone = form.querySelector('#buyerPhone');
+      
+      if (email && !email.validity.valid) {
+        e.preventDefault();
+        email.focus();
+        return;
+      }
+      
+      if (phone && !phone.validity.valid) {
+        e.preventDefault();
+        phone.focus();
+        return;
+      }
+    });
+  }
 
   function launchRazorpay() {
     const templateId = "{{ template_id }}";
@@ -257,6 +436,14 @@
           ...response,
           template_id: templateId
         };
+        
+        // Show loading state
+        const submitButton = document.querySelector('button[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+        }
+
         fetch("/payment-success/", {
           method: "POST",
           headers: {
@@ -278,6 +465,17 @@
           } else {
             const modal = new bootstrap.Modal(document.getElementById('razorpayFailedModal'));
             modal.show();
+          }
+        })
+        .catch(error => {
+          console.error('Payment processing error:', error);
+          const modal = new bootstrap.Modal(document.getElementById('razorpayFailedModal'));
+          modal.show();
+        })
+        .finally(() => {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<i class="bi bi-credit-card me-2"></i>Proceed to Payment';
           }
         });
       },
@@ -305,8 +503,88 @@
   });
 </script>
 
+    <!-- footer section -->
+    <footer class="footer text-white py-4">
+      <div class="container">
+        <div class="row">
+          <!-- Quick Links -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="{% url 'home' %}" class="text-decoration-none passage-text">Home</a></li>
+              <li class="mb-2"><a href="{% url 'home' %}#projects" class="text-decoration-none passage-text">Projects</a></li>
+              <li class="mb-2"><a href="{% url 'home' %}#about" class="text-decoration-none passage-text">About</a></li>
+              <li class="mb-2"><a href="{% url 'home' %}#services" class="text-decoration-none passage-text">Services</a></li>
+              <li class="mb-2"><a href="{% url 'home' %}#contact" class="text-decoration-none passage-text">Contact</a></li>
+            </ul>
+          </div>
 
+          <!-- Templates -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Templates</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="{% url 'templates' %}" class="text-decoration-none passage-text">All Templates</a></li>
+              <li class="mb-2"><a href="{% url 'templates' %}?category=premium" class="text-decoration-none passage-text">Premium Templates</a></li>
+              <li class="mb-2"><a href="{% url 'templates' %}?category=free" class="text-decoration-none passage-text">Free Templates</a></li>
+              <li class="mb-2"><a href="{% url 'home' %}#contact" class="text-decoration-none passage-text">Template Support</a></li>
+            </ul>
+          </div>
 
+          <!-- Services -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Services</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="{% url 'home' %}#services" class="text-decoration-none passage-text">Full-Stack Development</a></li>
+              <li class="mb-2"><a href="{% url 'home' %}#services" class="text-decoration-none passage-text">Django Backend</a></li>
+              <li class="mb-2"><a href="{% url 'home' %}#services" class="text-decoration-none passage-text">Custom Web Apps</a></li>
+              <li class="mb-2"><a href="{% url 'home' %}#services" class="text-decoration-none passage-text">REST API Development</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-md-3 mb-4">
+            <h5 class="mb-3">Contact</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="mailto:contact@vamsikrishna.site" class="text-decoration-none passage-text">
+                  <i class="bi bi-envelope me-2"></i>contact@vamsikrishna.site
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="https://github.com/vamsikrishna7-github" target="_blank" class="text-decoration-none passage-text">
+                  <i class="bi bi-github me-2"></i>GitHub
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/" target="_blank" class="text-decoration-none passage-text">
+                  <i class="bi bi-linkedin me-2"></i>LinkedIn
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="https://blog.vamsikrishna.site/" target="_blank" class="text-decoration-none passage-text">
+                  <i class="bi bi-newspaper me-2"></i>Tech Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright and Stats -->
+        <div class="row mt-4">
+          <div class="col-12 text-center">
+            <p class="mb-2 passage-text">
+              <i class="bi bi-eye"></i> Total Views: {{ views }} | 
+              <i class="bi bi-calendar"></i> Last Updated: {% now "F Y" %}
+            </p>
+            <p class="mb-0 passage-text">
+              © {% now "Y" %} Vamsi Krishna. All rights reserved.
+              <a href="#" class="text-decoration-none passage-text ms-2">Privacy Policy</a> |
+              <a href="#" class="text-decoration-none passage-text">Terms of Service</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     </body>

@@ -45,7 +45,7 @@ function validateEmail(input) {
 // global view all 
 function viewAll(link) {
     const services = document.querySelectorAll('.show-hide');
-    const imgSrc = link.getAttribute('data-viewall-img');
+    const icon = link.querySelector('i');
 
     if (!link.classList.contains('active')) {
         link.classList.add('active');
@@ -53,7 +53,9 @@ function viewAll(link) {
             service.classList.add('active');
             service.style.display = "block"; 
         });
-        link.innerHTML = `View less <img width='20' height='20' src='${imgSrc}' alt='show-all-views'/>`;
+        icon.classList.remove('bi-chevron-down');
+        icon.classList.add('bi-chevron-up');
+        link.innerHTML = `View less <i class="bi bi-chevron-up ms-1"></i>`;
     } else {
         link.classList.remove('active');
         services.forEach(service => {
@@ -62,21 +64,33 @@ function viewAll(link) {
                 service.style.display = "none"; 
             }, 500); 
         });
-        link.innerHTML = `View all <img width='20' height='20' src='${imgSrc}' alt='show-all-views'/>`;
+        icon.classList.remove('bi-chevron-up');
+        icon.classList.add('bi-chevron-down');
+        link.innerHTML = `View all <i class="bi bi-chevron-down ms-1"></i>`;
     }
 }
 
 // projects
 function projectsViewAll(link) {
-    const projects = document.querySelector('.show-hide-projects');
-    const imgSrc = link.getAttribute('data-viewall-img'); 
+    const projects = document.querySelectorAll('.show-hide-projects');
+    const icon = link.querySelector('i');
 
-    if (!projects.classList.contains('d-none')) {
-        projects.classList.add('d-none');
-        link.innerHTML = `View all <img width='20' height='20' src='${imgSrc}' alt='show-all-views'/>`;
+    if (!link.classList.contains('active')) {
+        link.classList.add('active');
+        projects.forEach(project => {
+            project.classList.remove('d-none');
+        });
+        icon.classList.remove('bi-chevron-down');
+        icon.classList.add('bi-chevron-up');
+        link.innerHTML = `View less <i class="bi bi-chevron-up ms-1"></i>`;
     } else {
-        projects.classList.remove('d-none');
-        link.innerHTML = `View less <img width='20' height='20' src='${imgSrc}' alt='show-all-views'/>`;
+        link.classList.remove('active');
+        projects.forEach(project => {
+            project.classList.add('d-none');
+        });
+        icon.classList.remove('bi-chevron-up');
+        icon.classList.add('bi-chevron-down');
+        link.innerHTML = `View all <i class="bi bi-chevron-down ms-1"></i>`;
     }
 }
 

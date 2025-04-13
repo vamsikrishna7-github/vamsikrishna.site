@@ -96,9 +96,11 @@ def delete_message(request, msg_id):
     messages.success(request, "Message deleted successfully.")
     return redirect("admin_panel")
 
+#templates section
 def templates(request):
+    views = increment_visitor_count()
     templateProducts = TemplateProducts.objects.all().order_by("-created_at")
-    return render(request, "sellWork/templates.html", {"templateProducts": templateProducts, 'pay': False})
+    return render(request, "sellWork/templates.html", {"templateProducts": templateProducts, 'pay': False, 'views': views})
 
 client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
 

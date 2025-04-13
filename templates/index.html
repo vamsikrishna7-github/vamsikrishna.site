@@ -45,6 +45,21 @@
         width: 100% !important;
       }
       /* Footer link hover effects */
+
+      /* Current work section styles */
+      .current-work {
+        max-width: 100%;
+        word-wrap: break-word;
+        text-align: center;
+      }
+      @media (max-width: 767px) {
+        .current-work {
+          padding: 0.5rem !important;
+        }
+        .current-work span {
+          display: block;
+        }
+      }
     </style>
     <script type="application/ld+json">
     {
@@ -205,10 +220,14 @@
     
                 <!-- Right Section - Image -->
                 <div class="text-center">
-                    <img id="home-img" src=" {% static 'img/home/hero.webp' %} " class="p-1 img-fluid rounded" alt="Img not found">
-                    <br>
-                    <div class="d-inline passage-text border border-bottom p-1">
-                        <span class="bg-primary text-primary">. </span>&#8203; Currently working on <strong class="text-white"><a target="_blank" class="text-white text-decoration-none link-opacity-50-hover" href="https://github.com/vamsikrishna7-github/ranjith-fitclub.git">Ranjith FitClub</a></strong>
+                    <img id="home-img" src=" {% static 'img/home/hero.webp' %} " class=" img-fluid rounded" alt="Img not found">
+                    
+                    <div class="d-inline-block passage-text border border-bottom p-2 current-work col-12">
+                        <span class="bg-primary text-primary">. </span>&#8203; 
+                        <span class="d-inline-block">Currently working on</span>
+                        <strong class="text-white d-block d-md-inline-block mt-1 mt-md-0">
+                            <a target="_blank" class="text-white text-decoration-none link-opacity-50-hover" href="https://github.com/vamsikrishna7-github/ranjith-fitclub.git">Ranjith FitClub</a>
+                        </strong>
                     </div>
                 </div>
             </div>
@@ -228,14 +247,12 @@
       <!-- project_section -->
       <section id="projects">
         <div class="my-3">
-          <div class="d-flex text-white">
-            <h3><span class="hilate-text">#</span>projects</h3>
-            <div class="hr-line"></div>
-            <a id="view-all" href="javascript:void(0);" class="text-decoration-none text-primary mt-1 ms-auto" onclick="projectsViewAll(this)" 
-              data-viewall-img="{% static 'img/services/view-all.png' %}">
-              View all <img width="20" height="20" src="{% static 'img/services/view-all.png' %}" alt="show-all-views"/>
+          <div class="d-flex flex-wrap align-items-center text-white">
+            <h3 class="me-2"><span class="hilate-text">#</span>projects</h3>
+            <div class="hr-line pb-2"></div>
+            <a id="view-all" href="javascript:void(0);" class="text-decoration-none text-primary ms-auto d-flex align-items-center pb-2" onclick="projectsViewAll(this)">
+              View all <i class="bi bi-chevron-down ms-1"></i>
             </a>
-
           </div>
           <div class="container my-md-4 my-sm-2">
             <div class="row g-4"> 
@@ -310,7 +327,7 @@
               </div>
       
               <!-- Project Card 4 -->
-              <div class="col-12 col-md-6 col-lg-4"> 
+              <div class="show-hide-projects col-12 col-md-6 col-lg-4 d-none"> 
                 <div class="card h-auto d-flex flex-column">
                   <img src="{% static 'img/projects/4.webp' %}" class="card-img-top" alt="Project Image">
                   <div class="card-header passage-text">SQLite Django HTML Python</div>
@@ -600,19 +617,40 @@
 
       <!-- services section -->
       <section id="services">
-        <div class=" my-3">
-          <div class="d-flex text-white">
-            <h4><span class="hilate-text">#</span>what i offer</h4>
-            <div class="hr-line"></div>
-            <a id="view-all" class="text-decoration-none text-primary mt-1 ms-auto" 
-              onclick="viewAll(this)" 
-              data-viewall-img="{% static 'img/services/view-all.png' %}">
-              View all <img width="20" height="20" src="{% static 'img/services/view-all.png' %}" alt="show-all-views"/>
+        <div class="my-3">
+          <div class="d-flex flex-wrap align-items-center text-white">
+            <h4 class="me-2"><span class="hilate-text">#</span>what i offer</h4>
+            <div id="hr-line-services" class="pb-2"></div>
+            <a id="view-all" class="text-decoration-none text-primary ms-auto d-flex align-items-center pb-2" onclick="viewAll(this)">
+              View all <i class="bi bi-chevron-down ms-1"></i>
             </a>
-
           </div>
           <div class="container my-md-4 my-sm-2">
             <div class="row g-4"> 
+              
+              <!-- Template Sales Card -->
+              <div class="col-12 col-md-6 col-lg-4"> 
+                <div class="card h-auto d-flex flex-column border-primary">
+                  <img src="{% static 'img/templates/01_gymfit-preview.webp' %}" class="card-img-top" alt="Templates Image">
+                  <div class="card-header passage-text">Django, React, Next.js, Bootstrap, HTML, CSS, JavaScript</div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="card-title">Premium Website Templates</div>
+                    <p class="card-text passage-text flex-grow-1">
+                      Get ready-to-use, professionally designed website templates. Perfect for quick deployment and customization. 
+                      <span class="special-offer">Special offer: Buy now and get free support!</span>
+                    </p>
+                    <div class="d-flex flex-column gap-2">
+                      <a href="{% url 'templates' %}" class="btn btn-primary rounded-0 custom-buttons" type="button">
+                        View Templates <i class="bi bi-eye-fill"></i>
+                      </a>
+                      <a href="{% url 'templates' %}" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                        Buy Now <i class="bi bi-cart-fill"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
               
               <!-- service Card 1 -->
               <div class="col-12 col-md-6 col-lg-4"> 
@@ -627,7 +665,7 @@
                       I can deliver a complete solution tailored to your business needs.
                     </p>
                     <div>
-                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons mb-2" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
                       <a target="_blank" href="https://github.com/vamsikrishna7-github/vamsikrishna.site.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
@@ -652,7 +690,7 @@
                       I ensure your application runs smoothly and efficiently.
                     </p>
                     <div>
-                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons mb-2" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
                       <a target="_blank" href="https://github.com/vamsikrishna7-github/vamsikrishna.site.git" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
@@ -664,7 +702,7 @@
               </div>
 
               <!-- service Card 3 -->
-              <div class="col-12 col-md-6 col-lg-4"> 
+              <div class="col-12 col-md-6 col-lg-4 show-hide"> 
                 <div class="card h-auto d-flex flex-column">
                   <img src="{% static 'img/services/3.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">Django Python HTML CSS JavaScript Bootstrap MySQL/SQLite</div>
@@ -676,7 +714,7 @@
                       I can build a solution that fits your unique requirements.
                     </p>
                     <div>
-                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons mb-2" type="button">
                         Hire Me <img width="20" height="20" src=" {% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
                     </div>
@@ -696,7 +734,7 @@
                       Using modern technologies, I ensure your site looks great on all devices.
                     </p>
                     <div>
-                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons mb-2" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
                       <a target="_blank" href="https://niranjan.cloud/" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
@@ -719,7 +757,7 @@
                       Whether you're an individual or a business, I'll create a visually appealing and functional portfolio to attract clients. 
                     </p>
                     <div>
-                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons mb-2" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
                       <a target="_blank" href="https://niranjan.cloud/" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
@@ -742,7 +780,7 @@
                       From bug fixes to updates, I ensure your site remains functional and up-to-date.
                     </p>
                     <div>
-                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons mb-2" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
                     </div>
@@ -762,7 +800,7 @@
                       My APIs are efficient, secure, and easy to use.
                     </p>
                     <div>
-                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
+                      <a href="#contact" class="btn btn-outline-primary rounded-0 custom-buttons mb-2" type="button">
                         Hire Me <img width="20" height="20" src="{% static 'img/services/hire-me.png' %}" alt="Hire Me Icon"/>
                       </a>
                     </div>
@@ -770,30 +808,6 @@
                 </div>
               </div>
 
-              <!-- Template Sales Card -->
-              <div class="col-12 col-md-6 col-lg-4"> 
-                <div class="card h-auto d-flex flex-column border-primary">
-                  <img src="{% static 'img/templates/01_gymfit-preview.webp' %}" class="card-img-top" alt="Templates Image">
-                  <div class="card-header passage-text">Django, React, Next.js, Bootstrap, HTML, CSS, JavaScript</div>
-                  <div class="card-body d-flex flex-column flex-grow-1">
-                    <div class="card-title">Premium Website Templates</div>
-                    <p class="card-text passage-text flex-grow-1">
-                      Get ready-to-use, professionally designed website templates. Perfect for quick deployment and customization. 
-                      <span class="special-offer">Special offer: Buy now and get free support!</span>
-                    </p>
-                    <div class="d-flex flex-column gap-2">
-                      <a href="{% url 'templates' %}" class="btn btn-primary rounded-0 custom-buttons" type="button">
-                        View Templates <i class="bi bi-eye-fill"></i>
-                      </a>
-                      <a href="{% url 'templates' %}" class="btn btn-outline-primary rounded-0 custom-buttons" type="button">
-                        Buy Now <i class="bi bi-cart-fill"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-      
-      
             </div> 
           </div> 
         </div>
@@ -851,10 +865,12 @@
                     </div>
                 </div>
                 <div class="row p-2">
-                  <div class="col">
-                      {{ form.captcha }}
+                  <div class="col-12">
+                      <div class="captcha-container">
+                          {{ form.captcha }}
+                      </div>
                   </div>
-              </div>              
+                </div>              
                 <div class="row p-2">
                     <div class="col">
                         <button id="submit" class="btn btn-outline-primary rounded-0 custom-buttons" type="submit">Send</button>
@@ -1074,18 +1090,20 @@
       lazyImages.forEach(img => imageObserver.observe(img));
 
       // View all projects/services toggle
-      function toggleViewAll(element) {
-        const items = document.querySelectorAll('.show-hide, .show-hide-projects');
-        const viewAllText = element.querySelector('img');
+      function projectsViewAll(element) {
+        const items = document.querySelectorAll('.show-hide-projects');
+        const icon = element.querySelector('i');
         const isHidden = items[0].classList.contains('d-none');
         
         items.forEach(item => {
           if (isHidden) {
             item.classList.remove('d-none');
-            viewAllText.src = "{% static 'img/services/hide-all.png' %}";
+            icon.classList.remove('bi-chevron-down');
+            icon.classList.add('bi-chevron-up');
           } else {
             item.classList.add('d-none');
-            viewAllText.src = "{% static 'img/services/view-all.png' %}";
+            icon.classList.remove('bi-chevron-up');
+            icon.classList.add('bi-chevron-down');
           }
         });
       }

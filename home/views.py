@@ -246,3 +246,9 @@ def delete_product(request, id):
     product = get_object_or_404(TemplateProducts, id=id)
     product.delete()
     return redirect('admin_panel')
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+
+def terms_of_service(request):
+    return render(request, 'terms_of_service.html')

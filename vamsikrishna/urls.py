@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from home import views
 from blog.views import add_subscriber, view_count, unsubscribe
 from blog.views import delete_subscriber, create_blog_post, blog_post_list, del_blog_post, edit_blog_post, get_blog_posts_full, get_blog_post_full_by_slug, get_blogs_search, like_blog
@@ -7,12 +7,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve  # Import serve for media files
 from utils import health_check
+from home.views import homepage, privacy_policy, terms_of_service
 
 
 urlpatterns = [
     path('healthz/', health_check), #sleep time fix for render.com
 
-    path('', views.homepage, name='home'),
+    path('', homepage, name='home'),
     path('admin/', views.admin_login, name='admin'),
     path("admin-panel/", views.admin_panel, name="admin_panel"),
     path('delete-message/<int:msg_id>/', views.delete_message, name='delete_message'),
@@ -52,6 +53,9 @@ urlpatterns = [
     path("api/unsubscribe/", unsubscribe, name="unsubscribe"),
     path('api/subscribe/', add_subscriber, name='subscribe'),
 
+    path('privacy-policy/', privacy_policy, name='privacy_policy'),
+    path('terms-of-service/', terms_of_service, name='terms_of_service'),
+    path('sellWork/', include('home.urls')),
 ]
 
 # # Serve media files manually in production

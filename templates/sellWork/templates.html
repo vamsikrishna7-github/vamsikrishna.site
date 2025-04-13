@@ -21,6 +21,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/templates.css' %}">
+    <style>
+      /* Dropdown hover styles */
+      .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu {
+        margin-top: 0;
+        border: none;
+        background-color: rgba(33, 37, 41, 0.95);
+        backdrop-filter: blur(5px);
+      }
+      .dropdown-item {
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+      .dropdown-item:hover {
+        background-color: rgba(76, 107, 200, 0.2);
+        color: #4c6bc8;
+        transform: translateX(5px);
+      }
+      .dropdown-divider {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+    </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -172,6 +196,7 @@
                           >
                             Preview <img width="20" height="20" src="https://img.icons8.com/material-rounded/192/FFFFFF/youtube-live.png" alt="Live Preview Icon"/>
                           </a>
+                          {% if product.price != 0 %} 
                           <button
                             type="button"
                             class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2"
@@ -180,8 +205,18 @@
                             data-product-id="{{ product.id }}"
                             aria-label="Buy {{ product.title }} template"
                           >
-                          <i class="bi bi-bag-fill"></i> Buy Template
+                          <i class="bi bi-bag-fill"></i> Buy Template - ₹{{ product.price }}
                           </button>
+                          {% else %}
+                          <a 
+                            href="{{ product.source }}"
+                            target="_blank"
+                            type="button"
+                            class="btn btn-outline-primary rounded-0 custom-buttons w-100 mb-2"
+                          >
+                          <i class="bi bi-download"></i> Download Template - Free
+                          </a>
+                          {% endif %}
                         </div>
                       </div>
                     </div>

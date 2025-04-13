@@ -60,6 +60,29 @@
           display: block;
         }
       }
+
+      /* Dropdown hover styles */
+      .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu {
+        margin-top: 0;
+        border: none;
+        background-color: rgba(33, 37, 41, 0.95);
+        backdrop-filter: blur(5px);
+      }
+      .dropdown-item {
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+      .dropdown-item:hover {
+        background-color: rgba(76, 107, 200, 0.2);
+        color: #4c6bc8;
+        transform: translateX(5px);
+      }
+      .dropdown-divider {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
     </style>
     <script type="application/ld+json">
     {
@@ -655,7 +678,7 @@
               <!-- service Card 1 -->
               <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-auto d-flex flex-column">
-                  <img src="{% static 'img/services/1.webp' %}" class="card-img-top" alt="service Image">
+                  <img src="{% static 'img/services/Fullstact_1.webp' %}" class="card-img-top" alt="service Image">
                   <div class="card-header passage-text">Django Python HTML CSS JavaScript Bootstrap MySQL/SQLite</div>
                   <div class="card-body d-flex flex-column flex-grow-1">
                     <div class="card-title">Full-Stack Web Development</div>

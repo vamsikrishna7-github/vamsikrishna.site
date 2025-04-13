@@ -30,7 +30,8 @@ class TemplateProducts(models.Model):
     description = models.TextField() 
     preview_url = models.URLField()
     source = models.TextField(blank=True, null=True)
-    price = models.PositiveIntegerField(help_text="Price in INR paise (e.g., ₹499 → 49900)")
+    price = models.DecimalField(max_digits=12, decimal_places=2, help_text="Price in INR paise (e.g., ₹499.99 → 49999)")
+
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

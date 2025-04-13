@@ -3,6 +3,8 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from blog.models import NewsletterSubscriber
 import datetime
+from django.http import JsonResponse
+from django.db import connection
 
 #blog and portfolio visitor count
 def increment_visitor_count():
@@ -129,3 +131,12 @@ def send_payment_failed_email(buyer_email, buyer_name, product_title):
         fail_silently=False,
         html_message=buyer_html,
     )
+
+
+# Fix sleep time on render.com
+def health_check(request):
+    try:
+        connection.ensure_connection()  # Ensures DB connection is healthy
+        return JsonResponse({'status': 'ok', 'db': 'connected'})
+    except Exception:
+        return JsonResponse({'status': 'error', 'db': 'disconnected'}, status=500)

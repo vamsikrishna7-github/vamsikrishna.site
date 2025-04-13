@@ -6,9 +6,12 @@ from blog.views import delete_subscriber, create_blog_post, blog_post_list, del_
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve  # Import serve for media files
+from utils import health_check
 
 
 urlpatterns = [
+    path('healthz/', health_check), #sleep time fix for render.com
+
     path('', views.homepage, name='home'),
     path('admin/', views.admin_login, name='admin'),
     path("admin-panel/", views.admin_panel, name="admin_panel"),

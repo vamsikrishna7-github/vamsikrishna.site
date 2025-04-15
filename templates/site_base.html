@@ -1,0 +1,191 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Vamsi Krishna | Full-Stack Developer & Web Designer{% endblock %}</title>
+    <meta name="description" content="Professional Full-Stack Developer specializing in Django, React, and modern web technologies. Offering custom web development, API development, and responsive design services.">
+    <meta name="keywords" content="Full-Stack Developer, Django Developer, Web Developer, Python Developer, React Developer, Portfolio, Web Design, API Development">
+    <meta name="author" content="Vamsi Krishna">
+    <meta property="og:title" content="Vamsi Krishna | Full-Stack Developer & Web Designer">
+    <meta property="og:description" content="Professional Full-Stack Developer specializing in Django, React, and modern web technologies. Offering custom web development, API development, and responsive design services.">
+    <meta property="og:image" content="{% static 'img/urlicon.webp' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" href="{% static 'img/urlicon.webp' %}">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://www.google.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/ai.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+    <style>
+      /* Navbar link hover effects */
+      .navbar-nav .nav-link {
+        position: relative;
+        transition: all 0.3s ease !important;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #4c6bc8 !important;
+        transform: translateY(-2px) !important;
+      }
+      .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #4c6bc8;
+        transition: width 0.3s ease !important;
+      }
+      .navbar-nav .nav-link:hover::after {
+        width: 100% !important;
+      }
+
+      /* Dropdown hover styles */
+      .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu {
+        margin-top: 0;
+        border: none;
+        background-color: rgba(33, 37, 41, 0.95);
+        backdrop-filter: blur(5px);
+      }
+      .dropdown-item {
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+      .dropdown-item:hover {
+        background-color: rgba(76, 107, 200, 0.2);
+        color: #4c6bc8;
+        transform: translateX(5px);
+      }
+      .dropdown-divider {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body class="position-relative">
+
+    <!-- side vertical contact links -->
+    <div class="ms-4 side-contact-bar position-fixed z-3">
+      <div class="vertical-line"></div>
+      <div class="contact-buttons d-flex flex-column">
+        <a target="_blank" href="https://github.com/vamsikrishna7-github"><img class="my-2" width="25" height="25" src="https://img.icons8.com/material-outlined/100/FFFFFF/github.png" alt="github"/></a>
+        <a target="_blank" href="https://www.linkedin.com/in/vamsi-krishna-nagidi-742314233/"><img class="" width="25" height="25" src="https://img.icons8.com/ios-glyphs/120/FFFFFF/linkedin.png" alt="linkedin"/></a>
+        <a href="mailto:contact@vamsikrishna.site"><img class="my-2" width="23" height="23" src="https://img.icons8.com/glyph-neue/128/FFFFFF/gmail.png" alt="gmail"/></a>
+      </div>
+    </div>
+
+    <!-- navbar division -->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand text-white" href="{% url 'home' %}"><i class="bi bi-code-square"></i> VamsiKrishna</a>
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-menu-button-fill text-white fs-1"></i>
+          </button>        
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" href="{% url 'home' %}#home">
+                <i class="bi bi-house-door"></i> <span class="hilate-text">#</span>home
+              </a>
+              <a class="nav-link" href="{% url 'home' %}#projects">
+                <i class="bi bi-code-square"></i> <span class="hilate-text">#</span>projects
+              </a>
+              <a class="nav-link" href="{% url 'home' %}#about">
+                <i class="bi bi-person"></i> <span class="hilate-text">#</span>about
+              </a>
+              <a class="nav-link" href="{% url 'home' %}#services">
+                <i class="bi bi-gear"></i> <span class="hilate-text">#</span>services
+              </a>
+              <a class="nav-link" href="{% url 'home' %}#contact">
+                <i class="bi bi-envelope"></i> <span class="hilate-text">#</span>contact
+              </a>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-layers"></i> <span class="hilate-text">#</span>templates
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="{% url 'templates' %}">
+                    <i class="bi bi-grid"></i> View Templates
+                  </a></li>
+                  <li><a class="dropdown-item" href="{% url 'templates' %}?category=premium">
+                    <i class="bi bi-star"></i> Premium Templates
+                  </a></li>
+                  <li><a class="dropdown-item" href="{% url 'templates' %}?category=free">
+                    <i class="bi bi-gift"></i> Free Templates
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                    <i class="bi bi-headset"></i> Template Support
+                  </a></li>
+                </ul>
+              </div>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-newspaper"></i> <span class="hilate-text">#</span>blog
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                    <i class="bi bi-house"></i> Home
+                  </a></li>
+                  <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                    <i class="bi bi-code-slash"></i> Tech Articles
+                  </a></li>
+                  <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                    <i class="bi bi-book"></i> Tutorials
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="https://blog.vamsikrishna.site/">
+                    <i class="bi bi-info-circle"></i> About Blog
+                  </a></li>
+                </ul>
+              </div>
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-question-circle"></i> <span class="hilate-text">#</span>help
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                    <i class="bi bi-question-lg"></i> FAQ
+                  </a></li>
+                  <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                    <i class="bi bi-credit-card"></i> Payment Help
+                  </a></li>
+                  <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                    <i class="bi bi-arrow-return-left"></i> Refund Policy
+                  </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'home' %}#contact">
+                    <i class="bi bi-headset"></i> Contact Support
+                  </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-5 pt-5">
+      {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 text-white border-top border-secondary">
+      <div class="container text-center">
+        <span>© {% now "Y" %} Vamsi Krishna. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

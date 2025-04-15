@@ -7,8 +7,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve  # Import serve for media files
 from utils import health_check
-from home.views import homepage, privacy_policy, terms_of_service
+from home.views import homepage, privacy_policy, terms_of_service, handler400, handler401, handler403, handler404, handler500
 
+handler400 = handler400
+handler401 = handler401
+handler403 = handler403
+handler404 = handler404
+handler500 = handler500
 
 urlpatterns = [
     path('healthz/', health_check), #sleep time fix for render.com

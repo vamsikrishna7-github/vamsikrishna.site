@@ -1,0 +1,114 @@
+{% extends 'site_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="text-center">
+        <h1 class="display-1 fw-bold text-primary mb-4 animate-400">400</h1>
+        <h2 class="h3 mb-3 text-white animate-text">Bad Request</h2>
+        <p class="lead text-secondary mb-4 animate-text">The server cannot process the request due to invalid syntax or parameters.</p>
+        <div class="d-flex justify-content-center gap-3 animate-buttons">
+            <a href="{% url 'home' %}" class="btn btn-primary">
+                <i class="bi bi-house-door me-2"></i>Back to Home
+            </a>
+            <a href="javascript:history.back()" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left me-2"></i>Go Back
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        background-color: #282c33;
+    }
+    .btn-primary {
+        background-color: #4c6bc8;
+        border-color: #4c6bc8;
+        transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+        background-color: #3a56a5;
+        border-color: #3a56a5;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(76, 107, 200, 0.3);
+    }
+    .btn-outline-primary {
+        color: #4c6bc8;
+        border-color: #4c6bc8;
+        transition: all 0.3s ease;
+    }
+    .btn-outline-primary:hover {
+        background-color: #4c6bc8;
+        border-color: #4c6bc8;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(76, 107, 200, 0.3);
+    }
+
+    /* Animation Keyframes */
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Animation Classes */
+    .animate-400 {
+        animation: shake 0.8s ease infinite;
+    }
+
+    .animate-text {
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+    }
+
+    .animate-text:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+
+    .animate-text:nth-child(3) {
+        animation-delay: 1s;
+    }
+
+    .animate-buttons {
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+        animation-delay: 1.5s;
+    }
+
+    /* Hover effects for buttons */
+    .btn {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .btn:hover::after {
+        width: 300px;
+        height: 300px;
+    }
+</style>
+{% endblock %} 

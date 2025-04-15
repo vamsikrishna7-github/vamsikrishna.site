@@ -108,10 +108,10 @@ WSGI_APPLICATION = "vamsikrishna.wsgi.application"
 DATABASES = {
     "default": dj_database_url.config(
         default="postgresql://neondb_owner:npg_mfeMUXr40blK@ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech/vamsikrishna_site?sslmode=require",
-        conn_max_age=600,
-        ssl_require=True,
+        conn_max_age=600
     )
 }
+
 
 # Password Validators
 AUTH_PASSWORD_VALIDATORS = [

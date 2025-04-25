@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="container">
-        <div class="login-box container">
+        <div class="login-box">
             <div class="text-center mb-3">
                 <i class="bi bi-person-fill-lock display-4 text-primary mb-3"></i>
                 <h2 class="h3 text-white">Admin Portal</h2>
@@ -64,8 +64,8 @@
                     </div>
                     
                     <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn border-secondary w-100 text-white btn-auth" id="googleBtn">
-                        <img width="17" height="17" class="mb-1" src="https://img.icons8.com/color/480/google-logo.png" alt="google-logo"/>
-                        <span class="ms-2">Continue with Google</span>
+                        <img width="20" height="20" class="img-responsive" src="https://img.icons8.com/color/480/google-logo.png" alt="google-logo"/>
+                        <span class="ms-2"><span class="d-none d-sm-inline">Continue with </span>Google</span>
                         <div class="spinner-border spinner-border-sm text-light ms-2" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>

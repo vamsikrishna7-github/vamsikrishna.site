@@ -48,3 +48,17 @@ input:focus, textarea:focus{
     border: 1px solid rgb(255, 255, 255) !important;
     box-shadow: none !important;
 }
+
+label {
+    color: white !important;
+}
+input {
+    border: 1px solid #6c757d !important;
+    background-color: transparent !important;
+    color: white !important;
+}
+input:focus {
+    border: 1px solid rgb(255, 255, 255) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}

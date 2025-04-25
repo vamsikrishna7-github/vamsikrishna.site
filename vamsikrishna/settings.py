@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     "cloudinary_storage",
     "blog",
     "rest_framework",
+    "social_django",
 ]
 
 MIDDLEWARE = [
@@ -169,3 +170,34 @@ RECAPTCHA_REQUIRED = True
 #Razerpay
 RAZORPAY_KEY_ID = 'rzp_live_JYd4C2kFByLggN'
 RAZORPAY_KEY_SECRET = 'ShybyuTubacF63AhJfvUGSV3'
+
+
+#login with google
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '245460647363-mvqdqlj00lsp70ac1g7glab0056mg3d3.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+LOGIN_REDIRECT_URL = 'admin_panel'
+LOGOUT_REDIRECT_URL = 'admin'
+
+TEMPLATES[0]['OPTIONS']['context_processors'] += [
+    'social_django.context_processors.backends',
+    'social_django.context_processors.login_redirect',
+]
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'home.pipeline.validate_admin_email',  # ✅ Your custom step
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)

@@ -15,6 +15,7 @@ handler403 = handler403
 handler404 = handler404
 handler500 = handler500
 
+
 urlpatterns = [
     path('healthz/', health_check), #sleep time fix for render.com
 
@@ -24,6 +25,10 @@ urlpatterns = [
     path('delete-message/<int:msg_id>/', views.delete_message, name='delete_message'),
     path("logout/", views.admin_logout, name="logout"),
     path('update_current_project/', views.update_current_project, name='update_current_project'),
+
+    #login with google
+    path('oauth/', include('social_django.urls', namespace='social')),  # Add this
+
 
 
     #templates

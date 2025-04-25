@@ -43,15 +43,15 @@ Follow these steps to set up the project on your local machine.
 
 ```bash
     git https://github.com/vamsikrishna7-github/vamsikrishna.site.git
-    cd vamsikrishna.in
+    cd vamsikrishna.site
 ```
 
 ### 2️⃣ Create a Virtual Environment (Optional but Recommended)
 
 ```bash
-    python -m venv vamsi
-    source vamsi/bin/activate  # For macOS/Linux
-    vamsikrishna\Scripts\activate  # For Windows
+    python -m venv venv
+    source venv/bin/activate  # For macOS/Linux
+    venv\Scripts\activate  # For Windows
 ```
 
 ### 3️⃣ Install Dependencies
@@ -63,18 +63,18 @@ Follow these steps to set up the project on your local machine.
 ### 4️⃣ Set Up Database Migrations
 
 ```bash
-    python manage.py migrate
+    python manage.py migrate # optional
 ```
 
 ### 5️⃣ Create a Superuser (For Admin Panel)
 
 ```bash
-    python manage.py createsuperuser
+    python manage.py createsuperuser # optional
 ```
 ### * Collect Static Files (for Deployment)
 
 ```bash
-    python manage.py collectstatic
+    python manage.py collectstatic # optional
 ```
 ### 6️⃣ Run the Development Server
 

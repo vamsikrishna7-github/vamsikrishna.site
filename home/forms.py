@@ -1,5 +1,5 @@
 from django import forms
-from .models import ContactMessage, TemplateProducts
+from .models import ContactMessage, TemplateProducts, CurrentProject
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
@@ -24,3 +24,9 @@ class TemplateProductForm(forms.ModelForm):
             'tech_stack': forms.TextInput(attrs={'placeholder': 'e.g., Django, React'}),
             'price': forms.NumberInput(attrs={'placeholder': 'Enter price'}),
         }
+
+class CurrentProjectForm(forms.ModelForm):
+    class Meta:
+        model = CurrentProject
+        fields = ['title', 'github_link']
+

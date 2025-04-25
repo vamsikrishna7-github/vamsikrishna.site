@@ -53,8 +53,16 @@
         <div class="text-center">
             <button id="seeMoreBtn" class="btn btn-primary mt-2" onclick="showMoreEmails()">See More</button>
             <button id="showLessBtn" class="btn btn-secondary mt-2" onclick="showLessEmails()" style="display: none;">Show Less</button>
-          </div>
+        </div>
 
+          <div class="container my-5 mx-2" id="current-project">
+            <h4 class="text-white"><i class="bi bi-github text-primary me-2"></i>Current Project</h4>
+            <form action="{% url 'update_current_project' %}" method="POST">
+                {% csrf_token %}
+                {{ CurrentProjectform.as_p }}
+                <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-arrow-up-fill me-2"></i>Update</button>
+            </form>
+          </div>
 
         {% comment %} subscribers  {% endcomment %}
         <h4 class="text-white"><i class="bi bi-people-fill text-primary me-2"></i>Blog newsletter subscribers</h4>
@@ -140,6 +148,7 @@
         </div>
       </div>
     </div>
+    
 
     <div class="mt-5 mx-2" id="blog">
         <h4 class="text-white"><i class="bi bi-box-seam-fill text-primary me-2"></i>All Template Products</h4>

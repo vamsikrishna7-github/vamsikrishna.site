@@ -69,3 +69,12 @@ class TemplatePurchase(models.Model):
     is_verified = models.BooleanField(default=False)
     purchased_at = models.DateTimeField(auto_now_add=True)
 
+
+# current working project
+class CurrentProject(models.Model):
+    title = models.CharField(max_length=100)
+    github_link = models.URLField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

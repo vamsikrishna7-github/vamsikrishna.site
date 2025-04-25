@@ -8,11 +8,15 @@ from django.db import connection
 
 #blog and portfolio visitor count
 def increment_visitor_count():
-    VisitorCount = apps.get_model('home', 'VisitorCount')
-    visitor, created = VisitorCount.objects.get_or_create(id=1)
-    visitor.views += 1
-    visitor.save()
-    return visitor.views 
+    try:
+        VisitorCount = apps.get_model('home', 'VisitorCount')
+        visitor, created = VisitorCount.objects.get_or_create(id=1)
+        visitor.views += 1
+        visitor.save()
+        return visitor.views 
+    except Exception as e:
+        print(f"Error incrementing visitor count: {e}")
+        return 0
 
 #auto blog subscribe email
 def auto_email_subscribe(email, name):

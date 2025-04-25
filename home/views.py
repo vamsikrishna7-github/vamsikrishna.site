@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect,  get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .forms import ContactForm, TemplateProductForm
-from .models import ContactMessage, TemplateProducts, TemplatePurchase
+from .forms import ContactForm, TemplateProductForm, CurrentProjectForm
+from .models import ContactMessage, TemplateProducts, TemplatePurchase, CurrentProject
 from blog.models import NewsletterSubscriber
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
@@ -19,6 +19,11 @@ from requests.exceptions import RequestException
 @csrf_protect
 def homepage(request):
     views = increment_visitor_count()
+    try:
+        current_project = CurrentProject.objects.order_by("-created_at").first()
+    except Exception as e:
+        print(f"Error getting current project: {e}")
+        current_project = None
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -41,7 +46,7 @@ def homepage(request):
             messages.error(request, "Captcha is not valid. try again!")
     else:
         form = ContactForm()
-    return render(request, 'index.html', {'form': form, 'views': views})
+    return render(request, 'index.html', {'form': form, 'views': views, 'current_project': current_project})
 
 def admin_login(request):
     if request.user.is_authenticated:
@@ -67,6 +72,7 @@ def admin_panel(request):
     subscribed_users = NewsletterSubscriber.objects.all().order_by("-subscribed_at")
     templateProducts = TemplateProducts.objects.all().order_by("-created_at")
     templatePurchase = TemplatePurchase.objects.all().order_by("-purchased_at")
+    CurrentProjectform = CurrentProjectForm()
     
     total_amount = sum(purchase.amount_paid for purchase in templatePurchase if purchase.is_verified)
     
@@ -81,7 +87,8 @@ def admin_panel(request):
         "subscribers": subscribed_users, 
         "templateProducts": templateProducts, 
         "templatePurchase": templatePurchase,
-        "total_amount": total_amount
+        "total_amount": total_amount,
+        "CurrentProjectform": CurrentProjectform
     })
 
 @login_required(login_url='/admin/')
@@ -253,6 +260,14 @@ def privacy_policy(request):
 def terms_of_service(request):
     return render(request, 'terms_of_service.html')
 
+
+@login_required(login_url='/admin/')
+def update_current_project(request):
+    if request.method == "POST":
+        form = CurrentProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_panel')
 
 #Error Handlers
 def handler400(request, exception):

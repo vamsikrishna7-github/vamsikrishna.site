@@ -7,7 +7,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve  # Import serve for media files
 from utils import health_check
-from home.views import homepage, privacy_policy, terms_of_service, handler400, handler401, handler403, handler404, handler500
+from home.views import homepage, privacy_policy, terms_of_service, handler400, handler401, handler403, handler404, handler500, update_current_project
 
 handler400 = handler400
 handler401 = handler401
@@ -23,6 +23,7 @@ urlpatterns = [
     path("admin-panel/", views.admin_panel, name="admin_panel"),
     path('delete-message/<int:msg_id>/', views.delete_message, name='delete_message'),
     path("logout/", views.admin_logout, name="logout"),
+    path('update_current_project/', views.update_current_project, name='update_current_project'),
 
 
     #templates

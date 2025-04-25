@@ -105,11 +105,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "vamsikrishna.wsgi.application"
 
-# ✅ Database Configuration (PostgreSQL on Render)
+# Database Configuration (PostgreSQL on Render)
 DATABASES = {
     "default": dj_database_url.config(
         default="postgresql://neondb_owner:npg_mfeMUXr40blK@ep-raspy-shape-a5ktfyv6-pooler.us-east-2.aws.neon.tech/vamsikrishna_site?sslmode=require",
-        conn_max_age=600
+        conn_max_age=300,  # 5 minutes (optimal for Neon's pooled connections)
+        engine_options={
+            'connect_timeout': 3,
+            'options': '-c statement_timeout=1500ms'  # Query timeout
+        }
     )
 }
 

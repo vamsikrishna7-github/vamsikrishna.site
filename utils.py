@@ -138,9 +138,52 @@ def send_payment_failed_email(buyer_email, buyer_name, product_title):
 
 
 # Fix sleep time on render.com
+from django.http import JsonResponse
+from django.db import connection
+import logging
+from datetime import datetime
+
+logger = logging.getLogger(__name__)
+
 def health_check(request):
+    """Neon.tech-specific health check with connection pooling support"""
+    response = {
+        'status': 'ok',
+        'timestamp': datetime.utcnow().isoformat(),
+        'services': {
+            'database': {
+                'status': 'connected',
+                'backend': 'neon.tech',
+                'pool_status': None
+            }
+        }
+    }
+    status_code = 200
+
     try:
-        connection.ensure_connection()  # Ensures DB connection is healthy
-        return JsonResponse({'status': 'ok', 'db': 'connected'})
-    except Exception:
-        return JsonResponse({'status': 'error', 'db': 'disconnected'}, status=500)
+        # Test connection AND verify Neon's connection pool
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT 1, 
+                pg_stat_activity_count(*) as active_connections,
+                current_setting('max_connections') as max_connections
+                FROM pg_stat_activity 
+                WHERE usename = current_user
+            """)
+            row = cursor.fetchone()
+            response['services']['database'].update({
+                'active_connections': row[1],
+                'max_connections': row[2],
+                'pool_status': 'healthy'
+            })
+            
+    except Exception as e:
+        logger.error(f"Neon.tech connection failure: {str(e)}", exc_info=True)
+        response.update({
+            'status': 'error',
+            'error': str(e),
+            'services': {'database': {'status': 'disconnected'}}
+        })
+        status_code = 503  # Service Unavailable
+
+    return JsonResponse(response, status=status_code)

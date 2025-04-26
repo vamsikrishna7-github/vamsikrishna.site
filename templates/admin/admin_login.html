@@ -33,13 +33,13 @@
                 {% csrf_token %}
                 <div class="mb-4">
                     <label for="staticEmail" class="form-label text-white">Admin ID</label>
-                    <input type="text" name="username" class="form-control" id="staticEmail" placeholder="example@gmail.com">
+                    <input type="text" name="username" class="form-control" id="staticEmail" placeholder="example@gmail.com" required>
                 </div>
                 
                 <div class="mb-4">
                     <label for="inputPassword" class="form-label text-white">Password</label>
                     <div class="input-group">
-                        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="••••••••">
+                        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="••••••••" required>
                         <button class="btn password-toggle" type="button" onclick="togglePassword()">
                             <i id="eyeIcon" class="bi bi-eye-slash"></i>
                         </button>
